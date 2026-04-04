@@ -41,15 +41,15 @@ public class insurancesmasterSteps7 {
     }
 
     //BUTTON ACTIONS 
-    @When("user clicks on Save button in insurance page")
-    public void user_clicks_on_save_button() {
-        page.clickSave();
-    }
+//    @When("user clicks on Save button")
+//    public void user_clicks_on_save_button() {
+//        page.clickSave();
+//    }
     
-    @When("user clicks on Clear button in insurance page")
-    public void user_clicks_on_clear_button() {
-        page.clickClear();
-    }
+//    @When("user clicks on Clear button")
+//    public void user_clicks_on_clear_button() {
+//        page.clickClear();
+//    }
 
     //EMPTY FIELD 
     @When("user leaves insurance {string} empty")
@@ -58,15 +58,15 @@ public class insurancesmasterSteps7 {
     }
 
     //SAVE BUTTON VALIDATION
-    @Then("insurance save button should be disabled")
-    public void save_button_should_be_disabled() {
-        Assert.assertFalse(page.isSaveEnabled(),"Save button should be disabled");
-    }
-    
-    @Then("Save button should be enabled")
-    public void save_button_should_be_enabled() {
-        Assert.assertTrue(page.isSaveEnabled(),"Save button should be enabled");
-    }
+//    @Then("insurance save button should be disabled")
+//    public void save_button_should_be_disabled() {
+//        Assert.assertFalse(page.isSaveEnabled(),"Save button should be disabled");
+//    }
+//    
+//    @Then("Save button should be enabled")
+//    public void save_button_should_be_enabled() {
+//        Assert.assertTrue(page.isSaveEnabled(),"Save button should be enabled");
+//    }
 
     //CLEAR VALIDATION 
     @Then("all fields should be cleared")
@@ -130,14 +130,14 @@ public class insurancesmasterSteps7 {
         Assert.assertFalse(value.isEmpty(), "Data not loaded in input field");
     }
 
-    @And("update button should be displayed in insurancemaster")
-    public void verifyUpdateVisible() {
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        Assert.assertTrue(wait.until(ExpectedConditions.visibilityOfElementLocated(
-                insurancesmasterLocators.UPDATE_BUTTON)).isDisplayed());
-    }
+//    @And("update button should be displayed ")
+//    public void verifyUpdateVisible() {
+//
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//
+//        Assert.assertTrue(wait.until(ExpectedConditions.visibilityOfElementLocated(
+//                insurancesmasterLocators.UPDATE_BUTTON)).isDisplayed());
+//    }
     
     @When("user updates {string} with {string} in insurancemaster")
     public void dynamicUpdate(String field, String value) {
@@ -145,29 +145,23 @@ public class insurancesmasterSteps7 {
         page.updateField(field, value); 
     }
 
-    @And("user clicks Update button in insurancemaster")
-    public void clickUpdate() {
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        wait.until(ExpectedConditions.elementToBeClickable(
-                insurancesmasterLocators.UPDATE_BUTTON)).click();
-    }
+//    @And("user clicks Update button")
+//    public void clickUpdate() {
+//
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//
+//        wait.until(ExpectedConditions.elementToBeClickable(
+//                insurancesmasterLocators.UPDATE_BUTTON)).click();
+//    }
       
-    @Then("update success popup should be displayed in insurancemaster")
-    public void verifyPopup() {
+//  @Then("update success popup should be displayed with message {string}")
+//  public void validate_update_popup(String expectedMessage) {
+//      page.validatePopup(expectedMessage);
+//  }
 
-        String msg = page.getPopupMessage();
-
-        Assert.assertTrue(
-            msg.contains("Already Exist") || msg.contains("Success"),
-            "Popup not displayed"
-        );
-    }
-
-    @And("user clicks OK button in insurancemaster")
-    public void clickOk() {
-    	
-        page.clickOkButton();
-    }
+//    @And("user clicks OK button")
+//    public void clickOk() {
+//    	
+//        page.clickOkButton();
+//    }
 }

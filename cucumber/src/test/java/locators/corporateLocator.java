@@ -55,17 +55,17 @@ public class corporateLocator {
 	public static By ACTIVE = By.xpath("//select[@formcontrolname='active']");
 	
 	//save button
-	public static By SAVE_BUTTON = By.xpath("//button[@type='submit' and normalize-space()='Save']");
+//	public static By SAVE_BUTTON = By.xpath("//button[@type='submit' and normalize-space()='Save']");
 	
 	//Cancel Button
-	public static By CLEAR_BUTTON = By.xpath("//button[@type='button' and normalize-space()='Clear']");
+//	public static By CLEAR_BUTTON = By.xpath("//button[@type='button' and normalize-space()='Clear']");
 	
 	//PopUp Message
 //	public static By ERROR_MESSAGE = By.xpath("//p[contains(text(),'Please fill district field')]");
-	public static By OK_BUTTON = By.xpath("//button[normalize-space()='OK']"); 
+//	public static By OK_BUTTON = By.xpath("//button[normalize-space()='OK']"); 
 	
 	//Update 
-	public static By UPDATE_BUTTON = By.xpath("//button[contains(text(),'Update')]");
+//	public static By UPDATE_BUTTON = By.xpath("//button[contains(text(),'Update')]");
 	
 	//Search
 	public static By searchInput = By.xpath("//input[@formcontrolname='search']");

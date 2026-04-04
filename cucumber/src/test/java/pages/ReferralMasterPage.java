@@ -102,23 +102,23 @@ public class ReferralMasterPage {
         return driver.findElement(referralmasterLocator.REFERRAL_TYPE).isDisplayed();
     }
 
-    public void clickUpdate() {
-        WebElement btn = wait.until(
-                ExpectedConditions.elementToBeClickable(referralmasterLocator.UPDATE_BUTTON));
-        btn.click();
-    }
+//    public void clickUpdate() {
+//        WebElement btn = wait.until(
+//                ExpectedConditions.elementToBeClickable(referralmasterLocator.UPDATE_BUTTON));
+//        btn.click();
+//    }
 
     //POPUP
-    public String getUpdateSuccessMessage() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(
-                referralmasterLocator.updateSuccessMessage)).getText();
-    }
+//    public String getUpdateSuccessMessage() {
+//        return wait.until(ExpectedConditions.visibilityOfElementLocated(
+//                referralmasterLocator.updateSuccessMessage)).getText();
+//    }
 
-    public void clickOk() {
-        WebElement okBtn = wait.until(
-                ExpectedConditions.elementToBeClickable(referralmasterLocator.okButton));
-        okBtn.click();
-    }
+//    public void clickOk() {
+//        WebElement okBtn = wait.until(
+//                ExpectedConditions.elementToBeClickable(referralmasterLocator.okButton));
+//        okBtn.click();
+//    }
 
     //SEARCH
     public void searchReferral(String value) {
@@ -135,9 +135,9 @@ public class ReferralMasterPage {
     }
 
     //CLEAR
-    public void clickClear() {
-        driver.findElement(referralmasterLocator.CLEAR_BUTTON).click();
-    }
+//    public void clickClear() {
+//        driver.findElement(referralmasterLocator.CLEAR_BUTTON).click();
+//    }
 
     public boolean isFormCleared() {
         return driver.findElement(referralmasterLocator.REFERRAL_NAME)
@@ -145,9 +145,9 @@ public class ReferralMasterPage {
     }
 
     //SAVE
-    public boolean isSaveEnabled() {
-        return driver.findElement(referralmasterLocator.SAVE_BUTTON).isEnabled();
-    }
+//    public boolean isSaveEnabled() {
+//        return driver.findElement(referralmasterLocator.SAVE_BUTTON).isEnabled();
+//    }
 
     //Click
     public void click(By locator) {

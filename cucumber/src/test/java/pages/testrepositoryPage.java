@@ -59,19 +59,19 @@ public class testrepositoryPage {
         ele.sendKeys(value);
     }
 
-    //BUTTON ACTIONS 
-    public void clickSave() {
-        driver.findElement(testrepositoryLocator.saveButton).click();
-    }
-
-    public void clickClear() {
-        driver.findElement(testrepositoryLocator.clearButton).click();
-    }
-
-    //VALIDATIONS 
-    public boolean isSaveButtonEnabled() {
-        return driver.findElement(testrepositoryLocator.saveButton).isEnabled();
-    }
+//    BUTTON ACTIONS 
+//    public void clickSave() {
+//        driver.findElement(testrepositoryLocator.saveButton).click();
+//    }
+//
+//    public void clickClear() {
+//        driver.findElement(testrepositoryLocator.clearButton).click();
+//    }
+//
+//    VALIDATIONS 
+//    public boolean isSaveButtonEnabled() {
+//        return driver.findElement(testrepositoryLocator.saveButton).isEnabled();
+//    }
 
     public boolean isTestNameDisplayed() {
         return driver.findElement(testrepositoryLocator.testnameInput).getAttribute("value").length() > 0;
@@ -82,9 +82,9 @@ public class testrepositoryPage {
         return driver.findElement(testrepositoryLocator.popupMessage).getText();
     }
 
-    public void clickOkOnPopup() {
-        driver.findElement(testrepositoryLocator.okButton).click();
-    }
+//    public void clickOkOnPopup() {
+//        driver.findElement(testrepositoryLocator.okButton).click();
+//    }
 
     //SEARCH 
     public int getSearchResultCount() {
@@ -97,9 +97,9 @@ public class testrepositoryPage {
     }
 
     //Click Update
-    public void clickUpdate() {
-        wait.until(ExpectedConditions.elementToBeClickable(testrepositoryLocator.updateButton)).click();
-    }
+//    public void clickUpdate() {
+//        wait.until(ExpectedConditions.elementToBeClickable(testrepositoryLocator.updateButton)).click();
+//    }
 
     //Click Delete
     public void clickDelete() {
@@ -127,17 +127,8 @@ public class testrepositoryPage {
     }
    
     //OK Button
-    public void clickOK() {
-        wait.until(ExpectedConditions.elementToBeClickable(testrepositoryLocator.okButton)).click();
-    }
+//    public void clickOK() {
+//        wait.until(ExpectedConditions.elementToBeClickable(testrepositoryLocator.okButton)).click();
+//    }
 
-    public void verifyButtonsNotVisible() {
-        boolean isUpdateVisible = driver.findElements(testrepositoryLocator.updateButton).size() > 0;
-        boolean isDeleteVisible = driver.findElements(testrepositoryLocator.deleteButton).size() > 0;
-        boolean isCancelVisible = driver.findElements(testrepositoryLocator.cancelbutton).size() > 0;
-
-        if (isUpdateVisible || isDeleteVisible || isCancelVisible) {
-            throw new AssertionError("Buttons are still visible after cancel");
-        }
-    }
 }

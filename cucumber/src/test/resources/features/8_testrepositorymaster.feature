@@ -13,7 +13,7 @@ Scenario Outline: Select Site Type
 
   When user selects Site Type "<siteType>"
   Then selected Site Type should be displayed
-  And user clicks on Clear button in test cost page
+  And user clicks on Clear button 
 
 Examples:
   | siteType          |
@@ -26,7 +26,7 @@ Scenario Outline: Select Account Head
 
   When user selects Account Head "<accounthead>"
   Then selected Account Head should be displayed
-  And user clicks on Clear button in test cost page
+  And user clicks on Clear button 
 
 Examples:
   | accounthead              |
@@ -39,7 +39,7 @@ Scenario Outline: Select Clinic
 
   When user selects Clinic "<clinic>"
   Then selected Clinic should be displayed
-  And user clicks on Clear button in test cost page
+  And user clicks on Clear button 
 
 Examples:
   | clinic            |
@@ -52,7 +52,7 @@ Scenario Outline: Select Payment Type
 
   When user selects Payment Type "<paymenttype>"
   Then selected Payment Type should be displayed
-  And user clicks on Clear button in test cost page
+  And user clicks on Clear button 
 
 Examples:
   | paymenttype       |
@@ -66,7 +66,7 @@ Scenario Outline: Select Site and Corporate Dropdown
   And user selects Corporate "<corporate>"
   Then selected Site should be displayed
   Then selected Corporate should be displayed
-  And user clicks on Clear button in test cost page
+  And user clicks on Clear button 
 
 Examples:
   | site                          | corporate         |
@@ -78,8 +78,8 @@ Scenario Outline: Enter Test Name
 
   When user enters Test Name "<testName>"
   Then entered Test Name should be displayed
-  And user clicks on Clear button in test cost page
-
+  And user clicks on Clear button 
+  
 Examples:
   | testName     |
   | TEST1        |
@@ -89,7 +89,7 @@ Scenario Outline: Select PayFree Type
 
   When user selects PayFree "<payfree>"
   Then selected PayFree Type should be displayed
-  And user clicks on Clear button in test cost page
+  And user clicks on Clear button 
 
 Examples:
   | payfree   |
@@ -100,7 +100,7 @@ Scenario Outline: Enter Test Cost
 
   When user enters Test Cost "<testCost>"
   Then entered Test Cost should be displayed
-  And user clicks on Clear button in test cost page
+  And user clicks on Clear button 
 
 Examples:
   | testCost  |
@@ -112,7 +112,7 @@ Scenario Outline: Select IsInjection
 
   When user selects IsInjection "<injection>"
   Then selected IsInjection should be displayed
-  And user clicks on Clear button in test cost page
+  And user clicks on Clear button 
 
 Examples:
   | injection  | 
@@ -122,7 +122,7 @@ Examples:
 #negative 
 Scenario Outline: Save button should be disabled when field is empty
   And user leaves test cost "<field>" empty
-  Then test cost master save button should be disabled
+  Then save button should be disabled
   
 Examples:
   | field          |
@@ -145,10 +145,10 @@ Scenario Outline: Save test cost master Successfully
   And user selects PayFree "<payfree>"
   And user enters Test Cost "<testcost>"
   And user selects IsInjection "<injection>"
-  Then test cost master save button should be enabled
-  When user clicks Save button in test cost page
+  Then save button should be enabled
+  When user clicks on Save button 
   Then test cost should be saved successfully
-  When user clicks on Clear button in test cost page
+  When user clicks on Clear button 
   Then all fields should be reset
  
 Examples:
@@ -178,21 +178,21 @@ Examples:
 Scenario: Update test cost after selecting row
     When user selects row with Test Name "012"
     And user enters Test Cost "950000" in testrepo
-    And user clicks on Update button in testrepo
+    And user clicks on Update button 
     Then update success popup should be displayed with message "Test repository master datas are updated successfully"
-    And user clicks OK on popup in testrepo
+    And user clicks OK on popup 
     
 Scenario: Delete selected row
     When user selects row with Test Name "012"
-    And user clicks on Delete button in testrepo
+    And user clicks on Delete button 
     Then delete success popup should be displayed with message "Test repository master datas are deleted successfully"
-    And user clicks OK on popup in testrepo
+    And user clicks OK on popup
 
   Scenario: Cancel selected row action
     When user selects row with Test Name "012"
-    And user clicks on Cancel button in testrepo
-    Then selection should be cleared
-    And Update Delete Cancel buttons should not be visible 
+    And user clicks on Cancel button 
+    Then all fields should be reset
+     
   
 
  

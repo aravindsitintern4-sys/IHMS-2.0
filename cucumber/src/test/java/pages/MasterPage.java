@@ -1,36 +1,40 @@
 package pages;
 
 import locators.masterLocator;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.*;
 
 import java.time.Duration;
 
 public class MasterPage {
 
     WebDriver driver;
+    WebDriverWait wait;
 
     public MasterPage(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
-   
-    public void selectOutpatientMasters() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    
+    public void clickOutpatientMasters() {
 
         WebElement masters = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(masterLocator.MASTERS));
+            ExpectedConditions.visibilityOfElementLocated(masterLocator.MASTERS)
+        );
 
-        Actions actions = new Actions(driver);
+        WebElement parent = masters.findElement(By.xpath(".."));
 
-        actions.moveToElement(masters)
-               .moveToElement(wait.until(
-                   ExpectedConditions.visibilityOfElementLocated(masterLocator.OUTPATIENT_MASTERS)))
-               .click()
-               .build()
-               .perform();
+        ((JavascriptExecutor) driver).executeScript(
+            "arguments[0].querySelector('div.absolute').style.display='block';",
+            parent
+        );
+
+        // ✅ Wait and click option
+        WebElement outpatient = wait.until(
+            ExpectedConditions.elementToBeClickable(masterLocator.OUTPATIENT_MASTERS)
+        );
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", outpatient);
     }
 }

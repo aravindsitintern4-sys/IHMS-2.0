@@ -129,18 +129,18 @@ public class RoomstatusPage {
     }
 
     //SAVE BUTTON 
-    public boolean isSaveEnabled() {
-        return driver.findElement(roomstatusLocator.saveButton).isEnabled();
-    }
-
-    public void clickSave() {
-        driver.findElement(roomstatusLocator.saveButton).click();
-    }
-
-    //CLEAR BUTTON
-    public void clickClear() {
-        driver.findElement(roomstatusLocator.clearButton).click();
-    }
+//    public boolean isSaveEnabled() {
+//        return driver.findElement(roomstatusLocator.saveButton).isEnabled();
+//    }
+//
+//    public void clickSave() {
+//        driver.findElement(roomstatusLocator.saveButton).click();
+//    }
+//
+//    CLEAR BUTTON
+//    public void clickClear() {
+//        driver.findElement(roomstatusLocator.clearButton).click();
+//    }
  
    // SEARCH ROOM
     public void enterSearchRoomNo(String roomNo) {

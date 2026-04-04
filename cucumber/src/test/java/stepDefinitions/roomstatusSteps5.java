@@ -123,20 +123,20 @@ public class roomstatusSteps5 {
     }
 
     //SAVE BUTTON
-    @Then("the room status save button should be disabled")
-    public void validate_save_disabled() {
-        Assert.assertFalse(driver.findElement(roomstatusLocator.saveButton).isEnabled(), "Save button should be disabled");
-    }
+//    @Then("the save button should be disabled")
+//    public void validate_save_disabled() {
+//        Assert.assertFalse(driver.findElement(roomstatusLocator.saveButton).isEnabled(), "Save button should be disabled");
+//    }
+//
+//    @Then("save button should be enabled")
+//    public void validate_save_enabled() {
+//        Assert.assertTrue(driver.findElement(roomstatusLocator.saveButton).isEnabled(), "Save button should be enabled");
+//    }
 
-    @Then("room status save button should be enabled")
-    public void validate_save_enabled() {
-        Assert.assertTrue(driver.findElement(roomstatusLocator.saveButton).isEnabled(), "Save button should be enabled");
-    }
-
-    @When("user clicks Save button in roomstatus page")
-    public void click_save_button() {
-        driver.findElement(roomstatusLocator.saveButton).click();
-    }
+//    @When("user clicks Save button")
+//    public void click_save_button() {
+//        driver.findElement(roomstatusLocator.saveButton).click();
+//    }
 
     @Then("room status should be saved successfully")
     public void verify_room_saved() {
@@ -144,10 +144,10 @@ public class roomstatusSteps5 {
     }
 
     //CLEAR BUTTON
-    @And("user clicks on Clear button in roomstatus page")
-    public void click_clear_button() {
-        driver.findElement(roomstatusLocator.clearButton).click();
-    }
+//    @And("user clicks on Clear button ")
+//    public void click_clear_button() {
+//        driver.findElement(roomstatusLocator.clearButton).click();
+//    }
 
     @Then("all fields should be reset")
     public void verify_fields_cleared() {

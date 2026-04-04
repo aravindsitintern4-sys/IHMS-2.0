@@ -20,7 +20,7 @@ Scenario Outline: Enter Corporate Name
    
    And user enters Corporate Name "<corporatename>"
    Then entered Corporate Name should be cleared
-   And user clicks on Clear button in corporate
+   And user clicks on Clear button 
 Examples:
 | corporatename |
 | xxxwwww       |
@@ -30,7 +30,7 @@ Scenario Outline: Select Charges Type
    
   When user selects Charge Type "<chargetype>"
   Then selected Charge Type should be displayed
-  And user clicks on Clear button in corporate
+  And user clicks on Clear button 
 
 Examples:
   | chargetype          | 
@@ -41,7 +41,7 @@ Scenario Outline: Select Co-Payment
    
   When user selects Co-Payment "<co-payment>"
   Then selected Co-Payment should be displayed
-  And user clicks on Clear button in corporate
+  And user clicks on Clear button 
 
 Examples:
   | co-payment | 
@@ -52,7 +52,7 @@ Scenario Outline: Select Corp.Group
    
   When user selects Corp.Group "<corp.group>"
   Then selected Corp.Group should be displayed
-  And user clicks on Clear button in corporate
+  And user clicks on Clear button 
 
 Examples:
   | corp.group                          | 
@@ -63,7 +63,7 @@ Scenario Outline: Enter New Pay Cost
    
    And user enter New Pay Cost "<newpaycost>"
    Then entered New Pay Cost should be displayed
-   And user clicks on Clear button in corporate
+   And user clicks on Clear button 
 Examples:
 | newpaycost |
 | 1000       |
@@ -73,7 +73,7 @@ Scenario Outline: Enter Old Pay Cost
    
    And user enter Old Pay Cost "<oldpaycost>"
    Then entered Old Pay Cost should be displayed
-   And user clicks on Clear button in corporate
+   And user clicks on Clear button 
 Examples:
 | oldpaycost |
 | 1200       |
@@ -83,13 +83,13 @@ Scenario: Enter Address1
  
    And user enter Address1 "Cross street1"
    Then entered Address1 should be displayed 
-   And user clicks on Clear button in corporate
+   And user clicks on Clear button 
    
 Scenario Outline: Enter Phone Number
 
    And user enter Phone number "<phonenum>"
    Then entered Phone number should be displayed
-   And user clicks on Clear button in corporate
+   And user clicks on Clear button 
    
 Examples:   
 | phonenum   |
@@ -100,13 +100,13 @@ Scenario: Enter Address2
  
    And user enter Address2 "Cross street2"
    Then entered Address2 should be displayed 
-   And user clicks on Clear button in corporate
+   And user clicks on Clear button 
    
 Scenario Outline: Enter Email
 
    And user enter Email "<email>"
    Then entered Email should be displayed
-   And user clicks on Clear button in corporate
+   And user clicks on Clear button 
    
 Examples:   
 | email         |
@@ -117,13 +117,13 @@ Scenario: Enter Address3
  
    And user enter Address3 "Cross street3"
    Then entered Address3 should be displayed 
-   And user clicks on Clear button in corporate   
+   And user clicks on Clear button    
    
 Scenario Outline: Enter Contact Person
 
    And user enter Contact Person "<contactperson>"
    Then entered Contact Person should be displayed
-   And user clicks on Clear button in corporate
+   And user clicks on Clear button 
    
 Examples:   
 | contactperson |
@@ -134,7 +134,7 @@ Scenario Outline: Select District
 
    And user select District "<district>"
    Then selected District should be displayed
-   And user clicks on Clear button in corporate
+   And user clicks on Clear button 
    
 Examples:   
 | district  |
@@ -145,7 +145,7 @@ Scenario Outline: Enter Fax
 
    And user enter Fax "<fax>"
    Then entered Fax should be displayed
-   And user clicks on Clear button in corporate
+   And user clicks on Clear button
    
 Examples:   
   | fax        |
@@ -157,7 +157,7 @@ Scenario Outline: Enter ABI
 
    And user enter ABI "<abi>"
    Then entered ABI should be displayed
-   And user clicks on Clear button in corporate
+   And user clicks on Clear button 
    
 Examples:   
   | abi        |
@@ -189,13 +189,13 @@ Scenario: Click Action button
    
   And user clicks on Action button
   Then given employee grade and amount shoukd be added
-  And user clicks on Clear button in corporate 
+  And user clicks on Clear button 
   
 Scenario Outline: Select Action type
 
   And user select Action type "<action>"
   Then selected Action type should be displayed
-  And user clicks on Clear button in corporate
+  And user clicks on Clear button 
   
 Examples:
  | action |
@@ -206,7 +206,7 @@ Examples:
 Scenario: Validate error when clicking Save without entering data
   And user clicks Save button without entering any data
   Then validation popup should be displayed with message "Please fill district field"
-  And user clicks on Clear button in corporate
+  And user clicks on Clear button 
  
 #Positive                         
 Scenario Outline: Save Room Status Successfully
@@ -230,9 +230,9 @@ Scenario Outline: Save Room Status Successfully
   And user clicks on Action button
   And user select Action type "<action>"
  
-  When user clicks on Save button in corporate
+  When user clicks on Save button 
   Then saved success popup message should be displayed "Record Saved Successfully"
-  And user clicks on Clear button in corporate
+  And user clicks on Clear button 
 
 Examples:
   | site                         | corporatename | chargetype    | copayment | corpgroup                        | newpaycost | oldpaycost | address1      | phonenum   | address2      | email          | address3      | contactperson | district | fax        | abi   | employeegrade | amount | action |
@@ -263,9 +263,9 @@ Scenario Outline: Update the corporate detail
     Then corporate creation form should be displayed
     And corporate details should be loaded in input fields
     And user enter New Pay Cost "<newpaycost>"
-    And user clicks on Update button in corporate
-    Then update success popup message should be displayed "Record Updated Successfully"
-    And user clicks OK on popup in corporate
+    And user clicks on Update button 
+    Then update success popup should be displayed with message "Record Updated Successfully"
+    And user clicks OK on popup 
 
 Examples:
 | corporatename | newpaycost |
@@ -277,7 +277,7 @@ Scenario Outline: Clear button validation
     Then corporate creation form should be displayed
     And corporate details should be loaded in input fields
     And user enter New Pay Cost "<newpaycost>"
-    And user clicks on Clear button in corporate
+    And user clicks on Clear button 
     Then entered all the detail should be cleared 
 
 Examples:

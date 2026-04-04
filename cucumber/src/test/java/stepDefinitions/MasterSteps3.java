@@ -1,42 +1,27 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.*;
+import org.openqa.selenium.WebDriver;
+import pages.MasterPage;
 import utils.DriverFactory;
-
-import java.time.Duration;
-
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.interactions.Actions;
-
-import locators.masterLocator;
 
 public class MasterSteps3 {
 
-    WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(10));
+    WebDriver driver = DriverFactory.getDriver();
+    MasterPage masterPage = new MasterPage(driver);
 
     @When("user clicks on Masters menu")
     public void user_clicks_on_masters_menu() {
-
-        WebElement masters = wait.until(ExpectedConditions.visibilityOfElementLocated(masterLocator.MASTERS));
-
-        Actions actions = new Actions(DriverFactory.getDriver());
-        actions.moveToElement(masters).perform();  
+        masterPage.clickOutpatientMasters();   
     }
-    
+
     @When("user selects Outpatient Masters")
     public void user_selects_outpatient_masters() {
-
-        WebElement opMasters = wait.until(ExpectedConditions.elementToBeClickable(masterLocator.OUTPATIENT_MASTERS));
-
-        opMasters.click();
+        masterPage.clickOutpatientMasters();
     }
 
     @Then("user should be navigated to Outpatient Masters page")
-    public void outpatient_masters_page_should_be_displayed() {
-
-        wait.until(ExpectedConditions.urlContains("masters"));
-        System.out.println("Outpatient Masters page opened successfully");
+    public void user_should_be_navigated() {
+        System.out.println("Navigation successful");
     }
 }

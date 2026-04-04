@@ -82,11 +82,11 @@ public class ReferralStep4 {
     }
 
     //SAVE BUTTON
-    @Then("save button should be disabled")
-    public void validate_save_disabled() {
-    	WebElement saveBtn = driver.findElement(referralmasterLocator.SAVE_BUTTON);
-        Assert.assertFalse(saveBtn.isEnabled(), "Save button should be disabled");
-    }
+//    @Then("save button should be disabled")
+//    public void validate_save_disabled() {
+//    	WebElement saveBtn = driver.findElement(referralmasterLocator.SAVE_BUTTON);
+//        Assert.assertFalse(saveBtn.isEnabled(), "Save button should be disabled");
+//    }
 
     //VALIDATIONS
     @Then("only alphabets should be entered in referral name field")
@@ -155,10 +155,10 @@ public class ReferralStep4 {
     }
 
     //CLEAR BUTTON
-    @And("user clicks on Clear button in referral")
-    public void click_clear() {
-    	driver.findElement(referralmasterLocator.CLEAR_BUTTON).click();
-    }
+//    @And("user clicks on Clear button")
+//    public void click_clear() {
+//    	driver.findElement(referralmasterLocator.CLEAR_BUTTON).click();
+//    }
     
     @Then("entered referral details should be cleared")
     public void validate_clear() {
@@ -199,10 +199,10 @@ public class ReferralStep4 {
         Assert.assertFalse(value.isEmpty());
     }
 
-    @And("update button should be displayed in referral")
-    public void verifyUpdateVisible() {
-        Assert.assertTrue(driver.findElement(referralmasterLocator.UPDATE_BUTTON).isDisplayed());
-    }
+//    @And("update button should be displayed ")
+//    public void verifyUpdateVisible() {
+//        Assert.assertTrue(driver.findElement(referralmasterLocator.UPDATE_BUTTON).isDisplayed());
+//    }
 
     @When("user updates {string} with {string} in referral")
     public void dynamicUpdate(String field, String value) {
@@ -221,8 +221,8 @@ public class ReferralStep4 {
     	Assert.assertTrue(driver.findElement(referralmasterLocator.updateSuccessMessage).isDisplayed());
     }
 
-    @And("user clicks OK button in referral")
-    public void clickOk() {
-    	driver.findElement(referralmasterLocator.okButton).click();
-    }
+//    @And("user clicks OK button")
+//    public void clickOk() {
+//    	driver.findElement(referralmasterLocator.okButton).click();
+//    }
 }

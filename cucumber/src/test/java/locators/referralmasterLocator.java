@@ -26,21 +26,21 @@ public class referralmasterLocator {
 
 	    public static By REFERRAL_TYPE = By.xpath("//select[@formcontrolname='Type']");
 
-	    public static By SAVE_BUTTON = By.xpath("//button[normalize-space()='Save']");
+//	    public static By SAVE_BUTTON = By.xpath("//button[normalize-space()='Save']");
 
-	    public static By CLEAR_BUTTON =By.xpath("//button[normalize-space()='Clear']");
+//	    public static By CLEAR_BUTTON =By.xpath("//button[normalize-space()='Clear']");
 	    
 	    public static By referralNameSearchInput = By.xpath("//input[@formcontrolname='referralnamesearch']");
 	    
 	    public static By referralResults = By.xpath("//tbody//tr"); 
 	    
-	    public static By UPDATE_BUTTON = By.xpath("//button[normalize-space()='Update']");
+//	    public static By UPDATE_BUTTON = By.xpath("//button[normalize-space()='Update']");
 	    
 	 // Success popup message
 	    public static By updateSuccessMessage = By.xpath("//*[contains(text(),'Record Updated Successfully')]");
 	    
 	 // OK button
-	    public static By okButton = By.xpath("//button[normalize-space()='OK']");
+//	    public static By okButton = By.xpath("//button[normalize-space()='OK']");
 
 	    public static By referralRowByName(String refName) {
 	        return By.xpath("//tbody//tr[td[normalize-space()='" + refName + "']]");

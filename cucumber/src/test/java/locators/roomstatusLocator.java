@@ -28,10 +28,10 @@ public class roomstatusLocator {
 	 public static By locationDropdown = By.xpath("//select[@formcontrolname='DepartmentId']");
 	 
 //Save
-	 public static By saveButton = By.xpath("//button[normalize-space()='Save']");
+//	 public static By saveButton = By.xpath("//button[normalize-space()='Save']");
 
 //clear
-	 public static By clearButton = By.xpath("//button[normalize-space()='Clear']");
+//	 public static By clearButton = By.xpath("//button[normalize-space()='Clear']");
 	 
 // SEARCH ROOM NUMBER	 
 	 public static By searchRoomInput = By.xpath("//input[@placeholder='Search by Room No']"); 

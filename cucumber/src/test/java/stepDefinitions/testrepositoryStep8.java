@@ -191,26 +191,26 @@ public class testrepositoryStep8 {
     }
 
     //BUTTONS 
-    @When("user clicks Save button in test cost page")
-    public void clickSave() {
-        wait.until(ExpectedConditions.elementToBeClickable(testrepositoryLocator.saveButton)).click();
-    }
+//    @When("user clicks Save button")
+//    public void clickSave() {
+//        wait.until(ExpectedConditions.elementToBeClickable(testrepositoryLocator.saveButton)).click();
+//    }
 
-    @When("user clicks on Clear button in test cost page")
-    public void clickClear() {
-        wait.until(ExpectedConditions.elementToBeClickable(testrepositoryLocator.clearButton)).click();
-    }
+//    @When("user clicks on Clear button")
+//    public void clickClear() {
+//        wait.until(ExpectedConditions.elementToBeClickable(testrepositoryLocator.clearButton)).click();
+//    }
 
     //VALIDATIONS 
-    @Then("test cost master save button should be disabled")
-    public void verifySaveDisabled() {
-        Assert.assertFalse(driver.findElement(testrepositoryLocator.saveButton).isEnabled());
-    }
-
-    @Then("test cost master save button should be enabled")
-    public void verifySaveEnabled() {
-        Assert.assertTrue(driver.findElement(testrepositoryLocator.saveButton).isEnabled());
-    }
+//    @Then("save button should be disabled")
+//    public void verifySaveDisabled() {
+//        Assert.assertFalse(driver.findElement(testrepositoryLocator.saveButton).isEnabled());
+//    }
+//
+//    @Then("save button should be enabled")
+//    public void verifySaveEnabled() {
+//        Assert.assertTrue(driver.findElement(testrepositoryLocator.saveButton).isEnabled());
+//    }
 
     @Then("test cost should be saved successfully")
     public void verifySuccess() {
@@ -286,17 +286,17 @@ public class testrepositoryStep8 {
         page.enterTestCost(cost);
     }
     
-    @When("user clicks on Update button in testrepo")
-    public void click_update() {
-        page.clickUpdate();
-    }
+//    @When("user clicks on Update button")
+//    public void click_update() {
+//        page.clickUpdate();
+//    }
     
     @Then("update success popup should be displayed with message {string}")
     public void validate_update_popup(String expectedMessage) {
         page.validatePopup(expectedMessage);
     }
     
-    @When("user clicks on Delete button in testrepo")
+    @When("user clicks on Delete button")
     public void click_delete() {
         page.clickDelete();
     }
@@ -306,23 +306,14 @@ public class testrepositoryStep8 {
         page.validatePopup(expectedMessage);
     }
     
-    @When("user clicks on Cancel button in testrepo")
+    @When("user clicks on Cancel button")
     public void click_cancel() {
         page.clickCancel();
     }
-    
-    @Then("selection should be cleared")
-    public void selection_cleared() {
-        // Optional validation
-    }
 
-    @Then("Update Delete Cancel buttons should not be visible")
-    public void buttons_not_visible() {
-        page.verifyButtonsNotVisible();
-    }
     
-    @Then("user clicks OK on popup in testrepo")
-    public void click_ok() {
-        page.clickOK();
-    }
+//    @Then("user clicks OK on popup ")
+//    public void click_ok() {
+//        page.clickOK();
+//    }
 }

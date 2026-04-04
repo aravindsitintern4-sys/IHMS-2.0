@@ -36,15 +36,15 @@ public class insurancesmasterPage {
     }
 
     //BUTTON ACTIONS 
-    public void clickSave() {
-        wait.until(ExpectedConditions.elementToBeClickable(insurancesmasterLocators.saveButton)).click();
-    }
-    public void clickClear() {
-        wait.until(ExpectedConditions.elementToBeClickable(insurancesmasterLocators.clearButton)).click();
-    }
-    public boolean isSaveEnabled() {
-        return driver.findElement(insurancesmasterLocators.saveButton).isEnabled();
-    }
+//    public void clickSave() {
+//        wait.until(ExpectedConditions.elementToBeClickable(insurancesmasterLocators.saveButton)).click();
+//    }
+//    public void clickClear() {
+//        wait.until(ExpectedConditions.elementToBeClickable(insurancesmasterLocators.clearButton)).click();
+//    }
+//    public boolean isSaveEnabled() {
+//        return driver.findElement(insurancesmasterLocators.saveButton).isEnabled();
+//    }
 
     //CLEAR VALIDATION 
     public boolean areFieldsCleared() {
@@ -133,17 +133,17 @@ public class insurancesmasterPage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
     
-    public String getPopupMessage() {
-
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(
-                insurancesmasterLocators.popupMessage))
-            .getText();
-    }
+//    public String getPopupMessage() {
+//
+//        return wait.until(ExpectedConditions.visibilityOfElementLocated(
+//                insurancesmasterLocators.popupMessage))
+//            .getText();
+//    }
     
-    public void clickOkButton() {
-
-        wait.until(ExpectedConditions.elementToBeClickable(
-                insurancesmasterLocators.okButton)).click();
-    }
+//    public void clickOkButton() {
+//
+//        wait.until(ExpectedConditions.elementToBeClickable(
+//                insurancesmasterLocators.okButton)).click();
+//    }
 
 }

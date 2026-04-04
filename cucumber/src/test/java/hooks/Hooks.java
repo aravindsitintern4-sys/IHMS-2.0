@@ -17,7 +17,7 @@ public class Hooks {
 
 	        if (!isBrowserStarted) {
 	            DriverFactory.initDriver();
-	            DriverFactory.getDriver().get("https://eyenotes20-base-qa.aravind.org:30434"); 
+	            DriverFactory.getDriver().get("https://eyenotes20-base-qa.aravind.org:30434/login"); 
 	            isBrowserStarted = true;
 	        }
 	    }
@@ -27,3 +27,5 @@ public class Hooks {
 //        DriverFactory.getDriver().quit();
     }
 }
+
+

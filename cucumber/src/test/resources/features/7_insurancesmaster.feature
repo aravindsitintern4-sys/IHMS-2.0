@@ -11,7 +11,7 @@ Background:
 Scenario Outline: Insurance Name field validation
   And user enters insurance name "<insuranceName>"
   Then insurance save button should be disabled
-  And user clicks on Clear button in insurance page
+  And user clicks on Clear button 
 
 Examples:
   | insuranceName |
@@ -24,7 +24,7 @@ Examples:
 Scenario Outline: Insurance Short Name field validation
   And user enters insurance short name "<shortName>"
   Then insurance save button should be disabled
-  And user clicks on Clear button in insurance page
+  And user clicks on Clear button 
 Examples:
   | shortName |
   | STAR      |
@@ -36,7 +36,7 @@ Examples:
 Scenario Outline: Save button disabled for empty fields
   And user leaves insurance "<field>" empty
   Then insurance save button should be disabled
-  And user clicks on Clear button in insurance page
+  And user clicks on Clear button 
 
 Examples:
   | field          |
@@ -64,7 +64,7 @@ Examples:
 Scenario: Clear button should reset fields
   And user enters insurance name "Test Insurance"
   And user enters insurance short name "TEST"
-  When user clicks on Clear button in insurance page
+  When user clicks on Clear button 
   Then all fields should be cleared
 
 # FULL POSITIVE SCENARIO
@@ -72,7 +72,7 @@ Scenario Outline: Save Insurance Successfully
   And user enters insurance name "<insuranceName>"
   And user enters insurance short name "<shortName>"
   Then insurance save button should be disabled
-  When user clicks on Save button in insurance page
+  When user clicks on Save button 
   Then insurance should be saved successfully
 
 Examples:
@@ -103,13 +103,13 @@ Scenario Outline: Update insurancemaster dynamically
 
   When user clicks insurancemaster row "<inc.code>"
   Then insurancemaster details should be loaded in input fields
-  And update button should be displayed in insurancemaster
+  And update button should be displayed 
 
   When user updates "<field>" with "<value>" in insurancemaster
-  And user clicks Update button in insurancemaster
+  And user clicks on Update button 
    
-  Then update success popup should be displayed in insurancemaster
-  And user clicks OK button in insurancemaster
+  Then update success popup should be displayed with message "Record Updated Successfully"
+  And user clicks OK on popup
 
 Examples:
   | inc.code  | field            | value   |

@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 
 public class masterLocator {
 
-    public static final By MASTERS = By.xpath("//span[normalize-space()='Masters']");
-
-    public static final By OUTPATIENT_MASTERS = By.xpath("//a[normalize-space()='Outpatient Masters']");
+	public static By MASTERS = By.xpath("//span[normalize-space()='Masters']/parent::div");
+	public static By OUTPATIENT_MASTERS = By.xpath("//a[normalize-space()='Outpatient Masters']");
 }

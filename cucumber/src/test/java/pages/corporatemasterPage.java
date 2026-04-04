@@ -38,10 +38,10 @@ public class corporatemasterPage {
     }
 
     //SAVE
-    public void clickSaveButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(
-                corporateLocator.SAVE_BUTTON)).click();
-    }
+//    public void clickSaveButton() {
+//        wait.until(ExpectedConditions.elementToBeClickable(
+//                corporateLocator.SAVE_BUTTON)).click();
+//    }
 
     //EDIT
     public void clickEditIconByName(String name) {
@@ -59,12 +59,12 @@ public class corporatemasterPage {
     }
 
     //UPDATE
-    public void clickUpdateButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(
-                corporateLocator.UPDATE_BUTTON)).click();
-    }
+//    public void clickUpdateButton() {
+//        wait.until(ExpectedConditions.elementToBeClickable(
+//                corporateLocator.UPDATE_BUTTON)).click();
+//    }
 
-    //POPUP 
+//    POPUP   
     public boolean isPopupMessageDisplayed(String msg) {
         try {
             return wait.until(ExpectedConditions.visibilityOfElementLocated(
@@ -74,10 +74,10 @@ public class corporatemasterPage {
         }
     }
 
-    public void clickOkButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(
-                corporateLocator.OK_BUTTON)).click();
-    }
+//    public void clickOkButton() {
+//        wait.until(ExpectedConditions.elementToBeClickable(
+//                corporateLocator.OK_BUTTON)).click();
+//    }
     
     //Corporate Name
     public void enterCorporateName(String name) {
@@ -109,10 +109,10 @@ public class corporatemasterPage {
     }
 
     //CLEAR
-    public void clickClearButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(
-                corporateLocator.CLEAR_BUTTON)).click();
-    }
+//    public void clickClearButton() {
+//        wait.until(ExpectedConditions.elementToBeClickable(
+//                corporateLocator.CLEAR_BUTTON)).click();
+//    }
 
     public boolean isFormCleared() {
 

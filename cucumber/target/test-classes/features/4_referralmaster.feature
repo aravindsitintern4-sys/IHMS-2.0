@@ -26,7 +26,7 @@ Scenario Outline: Referral Name field validation
   And user enters Referral Name "<input>"
   And user enters Referral Address 1 "Address1"
   Then only alphabets should be entered in referral name field
-  And user clicks on Clear button in referral
+  And user clicks on Clear button 
 
 Examples:
   | input   |
@@ -43,7 +43,7 @@ Scenario Outline: Referral Address 1 field validation
   And user enters Referral Name "Test"
   And user enters Referral Address 1 "<address1>"
   Then validation for referral address 1 field
-  And user clicks on Clear button in referral
+  And user clicks on Clear button 
 
 Examples:
   | address1 |
@@ -58,7 +58,7 @@ Examples:
 
 Scenario: Validate Address 2 clear functionality
   And user enters Referral Address 2 "Cross street"
-  And user clicks on Clear button in referral
+  And user clicks on Clear button 
   Then entered referral details should be cleared
 
 
@@ -66,7 +66,7 @@ Scenario: Validate Address 2 clear functionality
 
 Scenario: Validate Address 3 clear functionality
   And user enters Referral Address 3 "Address3"
-  And user clicks on Clear button in referral
+  And user clicks on Clear button 
   Then entered referral details should be cleared
 
 
@@ -75,7 +75,7 @@ Scenario: Validate Address 3 clear functionality
 Scenario Outline: Fax field validation
   And user enters Fax "<fax>"
   Then validation for fax field
-  And user clicks on Clear button in referral
+  And user clicks on Clear button 
 
 Examples:
   | fax        |
@@ -89,7 +89,7 @@ Examples:
 Scenario Outline: Phone No field validation
   And user enters Phone No "<phone>"
   Then validation for phone number field
-  And user clicks on Clear button in referral
+  And user clicks on Clear button 
 
 Examples:
   | phone      |
@@ -104,7 +104,7 @@ Examples:
 Scenario Outline: Email field validation
   And user enters Email ID "<email>"
   Then validation for email field
-  And user clicks on Clear button in referral
+  And user clicks on Clear button 
 
 Examples:
   | email          |
@@ -119,7 +119,7 @@ Examples:
 Scenario Outline: Contact Person field validation
   And user enters Contact Person "<name>"
   Then only alphabets should be entered in contact person field
-  And user clicks on Clear button in referral
+  And user clicks on Clear button 
 
 Examples:
   | name    |
@@ -157,7 +157,7 @@ Scenario: Verify Clear Functionality
   And user enters Referral Name "Test"
   And user enters Phone No "9876543210"
   And user enters Email ID "test@gmail.com"
-  And user clicks on Clear button in referral
+  And user clicks on Clear button 
   Then entered referral details should be cleared
 
 
@@ -173,10 +173,10 @@ Scenario: Save Referral Successfully
   And user enters Email ID "test@gmail.com"
   And user enters Contact Person "Siva"
   And user selects Referral Type "AEH Hospital"
-  #And user clicks on Save button in referral
+  #And user clicks on Save button 
   #Then referral should be saved successfully
 
-  And user clicks on Clear button in referral
+  And user clicks on Clear button 
   Then entered referral details should be cleared
   
 #SEARCH REFFERAL VALIDATION 
@@ -202,13 +202,13 @@ Scenario Outline: Update referral dynamically
 
   When user clicks referral row "<refName>"
   Then referral details should be loaded in input fields
-  And update button should be displayed in referral
+  And update button should be displayed 
 
   When user updates "<field>" with "<value>" in referral
-  And user clicks Update button in referral
+  And user clicks on Update button
 
-  Then update success popup should be displayed in referral
-  And user clicks OK button in referral
+  Then update success popup should be displayed with message "Test repository master datas are updated successfully"
+  And user clicks OK on popup
 
 Examples:
   | refName                   | field           | value          |

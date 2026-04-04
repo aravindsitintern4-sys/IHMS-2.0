@@ -36,10 +36,10 @@ public class testrepositoryLocator {
     public static By injectionDropdown = By.cssSelector("select[formcontrolname='Injection']");
     
     //Save
-  	 public static By saveButton = By.xpath("//button[normalize-space()='Save']");
+//  	 public static By saveButton = By.xpath("//button[normalize-space()='Save']");
 
     //clear
-  	 public static By clearButton = By.xpath("//button[normalize-space()='Clear']");
+//  	 public static By clearButton = By.xpath("//button[normalize-space()='Clear']");
   	
   	//PopUp Message
 //  	public static By popup = By.xpath("//div[contains(@class,'shadow-sm')]");
@@ -54,7 +54,7 @@ public class testrepositoryLocator {
   	public static By tableRows = By.xpath("//tbody/tr");
   	
   	//update popup
-  	public static By updateButton = By.xpath("//button[normalize-space()='Update']");
+//  	public static By updateButton = By.xpath("//button[normalize-space()='Update']");
   	public static By updateMessage = By.xpath("//p[contains(text(),'updated successfully')]");
   	
   	//Delete Popup

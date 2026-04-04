@@ -21,8 +21,8 @@ Scenario Outline: Patient Type field validation
     | <option7> |
     | <option8> |
     | <option9> |
-  Then the room status save button should be disabled
-  And user clicks on Clear button in roomstatus page
+  Then save button should be disabled
+  And user clicks on Clear button 
 
 Examples:
   | patientType | option1  | option2  | option3 | option4  | option5  | option6  | option7  | option8  | option9  |
@@ -34,7 +34,7 @@ Examples:
 
 Scenario Outline: Save button should be disabled when field is empty
   And user leaves room status "<field>" empty
-  Then the room status save button should be disabled
+  Then save button should be disabled
   
 Examples:
   | field          |
@@ -50,8 +50,8 @@ Examples:
 Scenario Outline: Room Type field validation
   And user selects Patient Type "<patientType>"
   And user selects Room Type "<roomType>"
-  Then the room status save button should be disabled
-  And user clicks on Clear button in roomstatus page
+  Then save button should be disabled
+  And user clicks on Clear button 
 
 Examples:
   | patientType | roomType  |
@@ -65,8 +65,8 @@ Examples:
 # ROOM NUMBER VALIDATION                         
 Scenario Outline: Room Number field validation
   And user enters Room No "<roomNo>"
-  Then the room status save button should be disabled
-  And user clicks on Clear button in roomstatus page
+  Then save button should be disabled
+  And user clicks on Clear button 
 
 Examples:
   | roomNo  |
@@ -78,8 +78,8 @@ Examples:
 # OCCUPANCY FLAG VALIDATION                    
 Scenario Outline: Occupancy Flag field validation
   And user selects Occupancy Flag "<occupancyFlag>"
-  Then the room status save button should be disabled
-  And user clicks on Clear button in roomstatus page
+  Then save button should be disabled
+  And user clicks on Clear button 
 
 Examples:
   | occupancyFlag |
@@ -91,8 +91,8 @@ Examples:
 # FLOOR VALIDATION                              
 Scenario Outline: Floor field validation
   And user selects Floor "<floor>"
-  Then the room status save button should be disabled
-  And user clicks on Clear button in roomstatus page
+  Then save button should be disabled
+  And user clicks on Clear button 
  
 Examples:
   | floor               |
@@ -103,8 +103,8 @@ Examples:
 # TOILET TYPE VALIDATION            
 Scenario Outline: Toilet Type field validation
   And user selects Toilet Type "<toiletType>"
-  Then the room status save button should be disabled
-  And user clicks on Clear button in roomstatus page
+  Then save button should be disabled
+  And user clicks on Clear button 
 
 Examples:
   | toiletType |
@@ -116,8 +116,8 @@ Examples:
 # LOCATION VALIDATION                
 Scenario Outline: Location field validation
   And user selects Location "<location>"
-  Then the room status save button should be disabled
-  And user clicks on Clear button in roomstatus page
+  Then save button should be disabled
+  And user clicks on Clear button 
 
 Examples:
   | location           |
@@ -134,10 +134,10 @@ Scenario Outline: Save Room Status Successfully
   And user selects Floor "<floor>"
   And user selects Toilet Type "<toiletType>"
   And user selects Location "<location>"
-  Then room status save button should be enabled
-  When user clicks Save button in roomstatus page
+  Then save button should be enabled
+  When user clicks on Save button 
   Then room status should be saved successfully
-  #When user clicks on Clear button in roomstatus page
+  #When user clicks on Clear button 
   #Then all fields should be reset
 
 Examples:

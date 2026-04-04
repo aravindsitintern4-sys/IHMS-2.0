@@ -5,10 +5,10 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
     features = "src/test/resources/features",
-    glue = {"stepDefinitions", "hooks"},
+    glue = {"stepDefinitions", "hooks" , "utils"},
     tags = "@login",
     plugin = {"pretty"},
     monochrome = true
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
-} 
+}  

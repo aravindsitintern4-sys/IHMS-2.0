@@ -252,10 +252,10 @@ public class corporatemasterSteps9 {
     }
 
     //CLEAR
-    @And("user clicks on Clear button in corporate")
-    public void clear_button() {
-        driver.findElement(corporateLocator.CLEAR_BUTTON).click();
-    }
+//    @And("user clicks on Clear button ")
+//    public void clear_button() {
+//        driver.findElement(corporateLocator.CLEAR_BUTTON).click();
+//    }
 
     //SEARCH
     @When("user enters Corporate name in search {string}")
@@ -274,10 +274,10 @@ public class corporatemasterSteps9 {
     }
    
    //Save 
-    @When("user clicks on Save button in corporate")
-    public void user_clicks_on_save_button_in_corporate() {
-        page.clickSaveButton();
-    }
+//    @When("user clicks on Save button ")
+//    public void user_clicks_on_save_button_in_corporate() {
+//        page.clickSaveButton();
+//    }
     
    // CLICK EDIT ICON
     @When("user clicks on active icon for corporate {string}")
@@ -294,28 +294,28 @@ public class corporatemasterSteps9 {
         Assert.assertFalse(value.isEmpty(), "Corporate data not loaded in input field");
     }
     
-    @And("user clicks Save button without entering any data")
-    public void click_save_without_data() {
-        driver.findElement(corporateLocator.SAVE_BUTTON).click();
-    }
+//    @And("user clicks Save button without entering any data")
+//    public void click_save_without_data() {
+//        driver.findElement(corporateLocator.SAVE_BUTTON).click();
+//    }
 
     @Then("validation popup should be displayed with message {string}")
     public void popup(String msg) {
         Assert.assertTrue(page.isPopupMessageDisplayed(msg));
     }
     
-    @And("user clicks on Update button in corporate")
-    public void click_update_button() {
+//    @And("user clicks on Update button in corporate")
+//    public void click_update_button() {
+//
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        WebElement updateBtn = wait.until(ExpectedConditions.elementToBeClickable(corporateLocator.UPDATE_BUTTON));
+//        updateBtn.click();
+//    }
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement updateBtn = wait.until(ExpectedConditions.elementToBeClickable(corporateLocator.UPDATE_BUTTON));
-        updateBtn.click();
-    }
-
-    @And("user clicks OK on popup in corporate")
-    public void ok_popup() {
-        driver.findElement(corporateLocator.OK_BUTTON).click();
-    }
+//    @And("user clicks OK on popup in corporate")
+//    public void ok_popup() {
+//        driver.findElement(corporateLocator.OK_BUTTON).click();
+//    }
 
     @Then("saved success popup message should be displayed {string}")
     public void saved_success_popup(String msg) {
