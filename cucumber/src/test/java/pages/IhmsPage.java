@@ -12,16 +12,11 @@ public class IhmsPage {
 
     public IhmsPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
-    // Wait for dashboard
     public void waitForDashboardToLoad() {
-        wait.until(d -> ((JavascriptExecutor) d)
-                .executeScript("return document.readyState")
-                .equals("complete"));
-
-        wait.until(ExpectedConditions.presenceOfElementLocated(IhmsLocator.ihmslogin));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(IhmsLocator.ihmslogin));
     }
 
     public void clickIHMSModule() {
@@ -30,28 +25,22 @@ public class IhmsPage {
             ExpectedConditions.elementToBeClickable(IhmsLocator.ihmslogin)
         );
 
-        ((JavascriptExecutor) driver)
-            .executeScript("arguments[0].scrollIntoView(true);", ihmsCard);
+        ihmsCard.click();
 
-        ((JavascriptExecutor) driver)
-            .executeScript("arguments[0].click();", ihmsCard);
-
-        try { Thread.sleep(3000); } catch (Exception e) {}
-
-//        driver.navigate().refresh();
+        wait.until(ExpectedConditions.urlContains("dashboard"));
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(
             By.xpath("//span[contains(text(),'Dashboard')]")
         ));
-
-        try { Thread.sleep(2000); } catch (Exception e) {}
     }
 
     public boolean isIHMSPageDisplayed() {
-        return wait.until(d ->
-                ((JavascriptExecutor) d)
-                        .executeScript("return document.readyState")
-                        .equals("complete")
-        );
+        try {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//span[contains(text(),'Dashboard')]")
+            )).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

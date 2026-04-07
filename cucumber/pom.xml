@@ -42,7 +42,6 @@
     <version>5.8.0</version>
 </dependency>
 
-
     <dependency>
     	<groupId>AutoTestCamp</groupId>
     	<artifactId>AutoCamp</artifactId>
@@ -64,7 +63,5 @@
 </dependency>
 
   </dependencies>
-		
-
   
 </project>

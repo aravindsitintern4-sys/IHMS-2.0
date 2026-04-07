@@ -26,7 +26,7 @@ public class LoginSteps1 {
     @When("user enters username {string} and password {string}")
     public void enterCredentials(String username, String password) {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(LoginLocator.username))
             .sendKeys(username);
@@ -39,7 +39,7 @@ public class LoginSteps1 {
     @When("user clicks on login button")
     public void click_login() {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 
         wait.until(ExpectedConditions.elementToBeClickable(LoginLocator.loginBtn))
             .click();

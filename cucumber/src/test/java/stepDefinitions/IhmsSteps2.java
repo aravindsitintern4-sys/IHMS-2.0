@@ -8,7 +8,7 @@ import utils.DriverFactory; // Assuming you have a WebDriver factory class
 
 public class IhmsSteps2 {
 
-    WebDriver driver = DriverFactory.getDriver(); // get initialized driver
+    WebDriver driver = DriverFactory.getDriver();
     IhmsPage ihmsPage = new IhmsPage(driver);
 
     @Given("user is on dashboard")
