@@ -1,5 +1,5 @@
 #@login @dashboard @outpatientmaster
-@corporatemaster
+#@corporatemaster
 Feature: Corporate Master
 
 Background:

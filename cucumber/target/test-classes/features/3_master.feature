@@ -1,5 +1,5 @@
-@login @dashboard
-@outpatientmaster
+#@login @dashboard
+#@outpatientmaster
 Feature: Masters Navigation
 
 Scenario: Open Outpatient Masters

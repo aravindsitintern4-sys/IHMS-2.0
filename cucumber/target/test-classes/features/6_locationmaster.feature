@@ -1,5 +1,5 @@
 #@login @dashboard @outpatientmaster
-@locationmaster
+#@locationmaster
 Feature: Location Master
 
 Background:

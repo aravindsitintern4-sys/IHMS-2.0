@@ -1,5 +1,5 @@
 #@login @dashboard @outpatientmaster
-@Referralmaster
+#@Referralmaster
 Feature: Referral Master
 
 Background:

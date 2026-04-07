@@ -1,5 +1,5 @@
 #@login @dashboard @outpatientmaster
-@insurancemaster
+#@insurancemaster
 Feature: Insurance Master
 
 Background:

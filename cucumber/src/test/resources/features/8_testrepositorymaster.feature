@@ -1,5 +1,5 @@
 #@login @dashboard @outpatientmaster
-@testrepository
+#@testrepository
 
 Feature: Test Repository Master
 

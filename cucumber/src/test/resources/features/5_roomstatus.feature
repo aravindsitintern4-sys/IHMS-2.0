@@ -1,5 +1,5 @@
 #@login @dashboard @outpatientmaster
-@roomstatusmaster
+#@roomstatusmaster
 Feature: Room Status Management
 
 Background:
