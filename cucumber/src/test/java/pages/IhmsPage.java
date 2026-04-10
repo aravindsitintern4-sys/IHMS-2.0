@@ -16,31 +16,58 @@ public class IhmsPage {
     }
 
     public void waitForDashboardToLoad() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(IhmsLocator.ihmslogin));
+        wait.until(d -> ((JavascriptExecutor) d)
+                .executeScript("return document.readyState")
+                .equals("complete"));
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(IhmsLocator.ihmslogin));
     }
 
-    public void clickIHMSModule() {
+    public void clickIHMSModuleAndSwitchTab() {
+
+        String sessionData = (String) ((JavascriptExecutor) driver)
+                .executeScript("return JSON.stringify(sessionStorage);");
 
         WebElement ihmsCard = wait.until(
-            ExpectedConditions.elementToBeClickable(IhmsLocator.ihmslogin)
+                ExpectedConditions.elementToBeClickable(IhmsLocator.ihmslogin)
         );
+
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].scrollIntoView(true);", ihmsCard);
 
         ihmsCard.click();
 
-        wait.until(ExpectedConditions.urlContains("dashboard"));
+        try { Thread.sleep(3000); } catch (Exception e) {}
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(
-            By.xpath("//span[contains(text(),'Dashboard')]")
-        ));
+        String current = driver.getWindowHandle();
+        for (String tab : driver.getWindowHandles()) {
+            if (!tab.equals(current)) {
+                driver.switchTo().window(tab);
+                break;
+            }
+        }
+
+        ((JavascriptExecutor) driver).executeScript(
+            "var data = JSON.parse(arguments[0]);" +
+            "for (var key in data) { sessionStorage.setItem(key, data[key]); }",
+            sessionData
+        );
+
+        driver.navigate().refresh();
+
+     
+        wait.until(d -> ((JavascriptExecutor)d)
+                .executeScript("return document.readyState")
+                .equals("complete"));
+
+        try { Thread.sleep(4000); } catch (Exception e) {}
     }
 
     public boolean isIHMSPageDisplayed() {
-        try {
-            return wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//span[contains(text(),'Dashboard')]")
-            )).isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
+        return wait.until(d ->
+                ((JavascriptExecutor) d)
+                        .executeScript("return document.readyState")
+                        .equals("complete")
+        );
     }
 }

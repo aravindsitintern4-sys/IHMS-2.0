@@ -1,36 +1,38 @@
 package pages;
 
 import java.time.Duration;
-
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import locators.LoginLocator;
 
 public class LoginPage {
 
-    WebDriver driver;
-    WebDriverWait wait;
+    private WebDriver driver;
+    private WebDriverWait wait;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15)); 
+
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    // Wait for login page
-    public void waitForLoginPage() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(LoginLocator.username));
+    public void waitForPageToLoad() {
+        wait.until(webDriver -> ((JavascriptExecutor) webDriver)
+                .executeScript("return document.readyState").equals("complete"));
     }
 
     public void enterUsername(String username) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(LoginLocator.username))
-            .sendKeys(username);
+        wait.until(ExpectedConditions.elementToBeClickable(LoginLocator.username))
+            .clear(); 
+        driver.findElement(LoginLocator.username).sendKeys(username);
     }
 
     public void enterPassword(String password) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(LoginLocator.password))
-            .sendKeys(password);
+        wait.until(ExpectedConditions.elementToBeClickable(LoginLocator.password))
+            .clear();
+        driver.findElement(LoginLocator.password).sendKeys(password);
     }
 
     public void clickLogin() {
@@ -39,13 +41,18 @@ public class LoginPage {
     }
 
     public void login(String username, String password) {
-        waitForLoginPage();  
+        waitForPageToLoad();   
+
         enterUsername(username);
         enterPassword(password);
         clickLogin();
     }
 
     public boolean isDashboardLoaded() {
-        return wait.until(ExpectedConditions.urlContains("dashboard"));
+        try {
+            return wait.until(ExpectedConditions.urlContains("dashboard"));
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

@@ -4,11 +4,11 @@ import org.openqa.selenium.WebDriver;
 import io.cucumber.java.en.*;
 import org.testng.Assert;
 import pages.IhmsPage;
-import utils.DriverFactory; // Assuming you have a WebDriver factory class
+import utils.DriverFactory; 
 
 public class IhmsSteps2 {
 
-    WebDriver driver = DriverFactory.getDriver();
+    WebDriver driver = DriverFactory.getDriver(); 
     IhmsPage ihmsPage = new IhmsPage(driver);
 
     @Given("user is on dashboard")
@@ -19,11 +19,11 @@ public class IhmsSteps2 {
 
     @When("user selects the IHMS module")
     public void user_selects_the_ihms_module() {
-        ihmsPage.clickIHMSModule();
+        ihmsPage.clickIHMSModuleAndSwitchTab();
     }
 
     @Then("IHMS dashboard page should be displayed")
     public void ihms_dashboard_page_should_be_displayed() {
         Assert.assertTrue(ihmsPage.isIHMSPageDisplayed(), "IHMS page is not displayed");
     }
-} 
+}
