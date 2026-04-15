@@ -19,7 +19,7 @@ public class IhmsSteps2 {
 
     @When("user selects the IHMS module")
     public void user_selects_the_ihms_module() {
-        ihmsPage.clickIHMSModuleAndSwitchTab();
+        ihmsPage.clickIHMSModule();
     }
 
     @Then("IHMS dashboard page should be displayed")

@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class billentryLocator {
 
-	public static By uinInput = By.xpath("(//input[@formcontrolname='patientUin'])[last()]");
+	public static By uinInput = By.xpath("(//input[@formcontrolname='patientUin'])");
 	
 	public static By paymentTypeDropdown = By.cssSelector("select.wid-70-cus");
 

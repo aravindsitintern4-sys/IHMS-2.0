@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="1" failed="4" skipped="0">
+<testng-results ignored="0" total="5" passed="2" failed="3" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-10T17:51:17 IST" name="Default suite" finished-at="2026-04-10T17:52:39 IST" duration-ms="81731">
+  <suite started-at="2026-04-15T17:46:43 IST" name="Default suite" finished-at="2026-04-15T17:48:11 IST" duration-ms="87469">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@15de0b3c]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-04-10T17:51:17 IST" name="Default test" finished-at="2026-04-10T17:52:39 IST" duration-ms="81731">
+    <test started-at="2026-04-15T17:46:43 IST" name="Default test" finished-at="2026-04-15T17:48:11 IST" duration-ms="87469">
       <class name="runner.TestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.TestRunner@15de0b3c]" started-at="2026-04-10T17:51:17 IST" name="setUpClass" finished-at="2026-04-10T17:51:17 IST" duration-ms="250" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.TestRunner@15de0b3c]" started-at="2026-04-15T17:46:43 IST" name="setUpClass" finished-at="2026-04-15T17:46:43 IST" duration-ms="238" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@7fdab70c]]>
+                <![CDATA[org.testng.TestRunner@38d17d80]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@15de0b3c]" started-at="2026-04-10T17:51:17 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-10T17:52:05 IST" duration-ms="48109" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@15de0b3c]" started-at="2026-04-15T17:46:43 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-15T17:47:53 IST" duration-ms="69945" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -34,24 +34,10 @@
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[User was NOT navigated to the dashboard! expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: User was NOT navigated to the dashboard! expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertTrue(Assert.java:57)
-at stepDefinitions.LoginSteps1.user_navigated_to_dashboard(LoginSteps1.java:33)
-at ✽.user is navigated to ihms dashboard(file:///C:/Users/intern2/git/repository/cucumber/src/test/resources/features/1_login.feature:25)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@15de0b3c]" started-at="2026-04-10T17:52:05 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-10T17:52:23 IST" duration-ms="17819" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@15de0b3c]" started-at="2026-04-15T17:47:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-15T17:47:55 IST" duration-ms="1817" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -67,7 +53,7 @@ at ✽.user is navigated to ihms dashboard(file:///C:/Users/intern2/git/reposito
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@15de0b3c]" started-at="2026-04-10T17:52:23 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-10T17:52:39 IST" duration-ms="15387" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@15de0b3c]" started-at="2026-04-15T17:47:55 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-15T17:48:10 IST" duration-ms="15257" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -82,31 +68,31 @@ at ✽.user is navigated to ihms dashboard(file:///C:/Users/intern2/git/reposito
           </params>
           <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[Expected condition failed: waiting for url to contain "bill-entry". Current url: "https://eyenotes20-ihms-qa.aravind.org:30434/dashboard/billing" (tried for 15 second(s) with 500 milliseconds interval)
+              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //span[contains(text(),'Billing')] (tried for 15 second(s) with 500 milliseconds interval)
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.178, chrome: {chromedriverVersion: 146.0.7680.165 (4b989da09e1..., userDataDir: C:\Users\intern2\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59653}, goog:processID: 23776, networkConnectionEnabled: false, pageLoadStrategy: eager, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59653/devtoo..., se:cdpVersion: 146.0.7680.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 823997358cf50b70362e19143b51182a]]>
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.178, chrome: {chromedriverVersion: 146.0.7680.165 (4b989da09e1..., userDataDir: C:\Users\intern2\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57543}, goog:processID: 7384, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57543/devtoo..., se:cdpVersion: 146.0.7680.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 0e45866abb26765b7c9790c3a7d2068e]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for url to contain "bill-entry". Current url: "https://eyenotes20-ihms-qa.aravind.org:30434/dashboard/billing" (tried for 15 second(s) with 500 milliseconds interval)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //span[contains(text(),'Billing')] (tried for 15 second(s) with 500 milliseconds interval)
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.178, chrome: {chromedriverVersion: 146.0.7680.165 (4b989da09e1..., userDataDir: C:\Users\intern2\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59653}, goog:processID: 23776, networkConnectionEnabled: false, pageLoadStrategy: eager, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59653/devtoo..., se:cdpVersion: 146.0.7680.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 823997358cf50b70362e19143b51182a
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.178, chrome: {chromedriverVersion: 146.0.7680.165 (4b989da09e1..., userDataDir: C:\Users\intern2\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57543}, goog:processID: 7384, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57543/devtoo..., se:cdpVersion: 146.0.7680.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 0e45866abb26765b7c9790c3a7d2068e
 at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at stepDefinitions.billingSteps.verify_bill_entry_page(billingSteps.java:40)
-at ✽.the Bill Entry page should be displayed(file:///C:/Users/intern2/git/repository/cucumber/src/test/resources/features/Billing.feature:9)
+at stepDefinitions.billingSteps.navigate_and_select_bill_entry(billingSteps.java:30)
+at ✽.user navigates to Billing and selects "Bill Entry"(file:///C:/Users/intern2/git/repository/cucumber/src/test/resources/features/Billing.feature:8)
 ]]>
             </full-stacktrace>
           </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@15de0b3c]" started-at="2026-04-10T17:52:39 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-10T17:52:39 IST" duration-ms="84" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@15de0b3c]" started-at="2026-04-15T17:48:10 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-15T17:48:11 IST" duration-ms="147" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -125,7 +111,7 @@ at ✽.the Bill Entry page should be displayed(file:///C:/Users/intern2/git/repo
             </message>
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "this.driver" is null
-at pages.billentryPage.openBillingPage(billentryPage.java:22)
+at pages.billentryPage.openBillingPage(billentryPage.java:21)
 at stepDefinitions.billentrySteps.user_is_on_the_billing_entry_page(billentrySteps.java:15)
 at ✽.user is on the billing entry page(file:///C:/Users/intern2/git/repository/cucumber/src/test/resources/features/billentry.feature:7)
 ]]>
@@ -134,7 +120,7 @@ at ✽.user is on the billing entry page(file:///C:/Users/intern2/git/repository
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@15de0b3c]" started-at="2026-04-10T17:52:39 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-10T17:52:39 IST" duration-ms="16" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@15de0b3c]" started-at="2026-04-15T17:48:11 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-15T17:48:11 IST" duration-ms="8" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -153,7 +139,7 @@ at ✽.user is on the billing entry page(file:///C:/Users/intern2/git/repository
             </message>
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "this.driver" is null
-at pages.billentryPage.openBillingPage(billentryPage.java:22)
+at pages.billentryPage.openBillingPage(billentryPage.java:21)
 at stepDefinitions.billentrySteps.user_is_on_the_billing_entry_page(billentrySteps.java:15)
 at ✽.user is on the billing entry page(file:///C:/Users/intern2/git/repository/cucumber/src/test/resources/features/billentry.feature:7)
 ]]>
@@ -162,7 +148,7 @@ at ✽.user is on the billing entry page(file:///C:/Users/intern2/git/repository
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.TestRunner@15de0b3c]" started-at="2026-04-10T17:52:39 IST" name="tearDownClass" finished-at="2026-04-10T17:52:39 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.TestRunner@15de0b3c]" started-at="2026-04-15T17:48:11 IST" name="tearDownClass" finished-at="2026-04-15T17:48:11 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

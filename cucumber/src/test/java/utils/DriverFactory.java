@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.PageLoadStrategy;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import java.util.Collections;
 
 public class DriverFactory {
 
@@ -16,7 +17,11 @@ public class DriverFactory {
 
             ChromeOptions options = new ChromeOptions();
             
-            options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+            options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+
+            options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+            options.setExperimentalOption("useAutomationExtension", false);
+            options.addArguments("--disable-blink-features=AutomationControlled");
             
             driver = new ChromeDriver(options);
             driver.manage().window().maximize();

@@ -17,7 +17,7 @@ public class billentrySteps {
 
     @When("user enters UIN {string} and presses enter")
     public void user_enters_uin_and_presses_enter(String uin) {
-        billPage.enterUINAndSubmit(uin);
+        billPage.enterUinAndSubmit(uin);
     }
 
     @Then("patient details should be displayed")

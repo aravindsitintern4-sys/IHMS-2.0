@@ -1,7 +1,6 @@
 package pages;
 
 import java.time.Duration;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,35 +13,33 @@ public class LoginPage {
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
-
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
+
     public void waitForPageToLoad() {
-        wait.until(webDriver -> ((JavascriptExecutor) webDriver)
-                .executeScript("return document.readyState").equals("complete"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(LoginLocator.username));
     }
 
     public void enterUsername(String username) {
-        wait.until(ExpectedConditions.elementToBeClickable(LoginLocator.username))
-            .clear(); 
+        wait.until(ExpectedConditions.elementToBeClickable(LoginLocator.username)).clear();
         driver.findElement(LoginLocator.username).sendKeys(username);
     }
 
     public void enterPassword(String password) {
-        wait.until(ExpectedConditions.elementToBeClickable(LoginLocator.password))
-            .clear();
+        wait.until(ExpectedConditions.elementToBeClickable(LoginLocator.password)).clear();
         driver.findElement(LoginLocator.password).sendKeys(password);
     }
 
     public void clickLogin() {
-        wait.until(ExpectedConditions.elementToBeClickable(LoginLocator.loginBtn))
-            .click();
+        wait.until(ExpectedConditions.elementToBeClickable(LoginLocator.loginBtn)).click();
+
+
+        wait.until(ExpectedConditions.urlContains("dashboard"));
     }
 
     public void login(String username, String password) {
-        waitForPageToLoad();   
-
+        waitForPageToLoad();
         enterUsername(username);
         enterPassword(password);
         clickLogin();

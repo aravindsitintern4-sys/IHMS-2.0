@@ -1,7 +1,7 @@
 package pages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
+//import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import java.time.Duration;
 
@@ -24,43 +24,24 @@ public class billentryPage {
         wait.until(ExpectedConditions.elementToBeClickable(billentryLocator.uinInput));
     }
 
-    public void enterUINAndSubmit(String uin) {
+    public void enterUinAndSubmit(String uinNumber) {
+        WebElement uinField = wait.until(ExpectedConditions.visibilityOfElementLocated(billentryLocator.uinInput));
 
-        WebElement uinField = wait.until(driver -> {
-            WebElement el = driver.findElement(billentryLocator.uinInput);
-            return (el.isDisplayed() && el.isEnabled()) ? el : null;
-        });
+        uinField.click();
+        uinField.clear();
 
-        ((JavascriptExecutor) driver).executeScript(
-                "arguments[0].scrollIntoView({block:'center'});", uinField);
-
-        wait.until(ExpectedConditions.elementToBeClickable(uinField));
-
-        Actions actions = new Actions(driver);
-        actions.moveToElement(uinField).click().perform();
-
-        uinField.sendKeys(Keys.CONTROL, "a");
-        uinField.sendKeys(Keys.DELETE);
-
-        uinField.sendKeys(uin);
-
-        String val = uinField.getAttribute("value");
-
-        if (val == null || !val.equals(uin)) {
-
-            ((JavascriptExecutor) driver).executeScript(
-                "arguments[0].value='" + uin + "';" +
-                "arguments[0].dispatchEvent(new Event('input', {bubbles:true}));",
-                uinField
-            );
-        }
-
-        uinField.sendKeys(Keys.ENTER);
-
-        wait.until(ExpectedConditions.visibilityOfElementLocated(
-                billentryLocator.patientNameDisplay
-        ));
+        uinField.sendKeys(uinNumber + Keys.ENTER);
+        
+        try { Thread.sleep(2000); } catch (Exception e) {}
     }
+
+//    public void clickBillEntry() {
+//        // Some systems require clicking a "Bill Entry" link/tab first
+//        WebElement entryLink = wait.until(ExpectedConditions.elementToBeClickable(billentryLocator.billEntryMenu));
+//        
+//        // Use JS click to avoid 'ElementClickInterceptedException' if a loader is still fading out
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", entryLink);
+//    }
     
     public String getPatientName() {
         WebElement nameField = wait.until(
