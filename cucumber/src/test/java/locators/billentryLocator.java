@@ -8,8 +8,8 @@ public class billentryLocator {
 	
 	public static By paymentTypeDropdown = By.cssSelector("select.wid-70-cus");
 
-    public static By optionPay = By.xpath("//option[@value='SITE01']");
-    public static By optionFree = By.xpath("//option[@value='SITE02']");
+	public static By optionPay = By.xpath("//option[text()='PAY']");
+    public static By optionFree = By.xpath("//option[text()='FREE']");
     
     public static By patientTypeDropdown = By.cssSelector("select.wid-70-cus");
 
@@ -17,7 +17,7 @@ public class billentryLocator {
     public static By optionOutPatient = By.xpath("//option[@value='OP']");
     public static By optionStaff = By.xpath("//option[@value='S']");
     
-    public static By AdviseByDropdown = By.xpath("//select[option[contains(text(),'Dev User')]]");
+    public static By adviseByDropdown = By.id("advisedBy");
     
     public static By TestNameDropdown = By.xpath("//select[option[@hidden][contains(text(),'Select')]]");
     

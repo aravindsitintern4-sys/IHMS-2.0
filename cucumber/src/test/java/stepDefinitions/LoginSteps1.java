@@ -3,7 +3,7 @@ package stepDefinitions;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import pages.LoginPage; // Import your optimized Page class
+import pages.LoginPage; 
 import utils.DriverFactory;
 
 public class LoginSteps1 {
@@ -13,8 +13,7 @@ public class LoginSteps1 {
 
     @Given("user is on login page")
     public void user_is_on_login_page() {
-        driver.get("https://eyenotes20-base-qa.aravind.org:30434/login"); 
-        loginPage.waitForPageToLoad();
+        DriverFactory.getDriver().get("https://eyenotes20-base-qa.aravind.org:30434/login");
     }
 
     @When("user enters username {string} and password {string}")

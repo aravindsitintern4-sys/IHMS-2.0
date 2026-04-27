@@ -14,6 +14,7 @@ public class IhmsSteps2 {
     @Given("user is on dashboard")
     public void user_is_on_dashboard() {
         Assert.assertNotNull(driver, "Driver is not initialized");
+//        DriverFactory.getDriver().get("https://eyenotes20-ihms-qa.aravind.org:30434/dashboard");
         ihmsPage.waitForDashboardToLoad();
     }
 

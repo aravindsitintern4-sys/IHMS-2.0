@@ -3,42 +3,42 @@ package utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.PageLoadStrategy;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import java.util.Collections;
+import org.openqa.selenium.PageLoadStrategy;
+
+import java.time.Duration;
 
 public class DriverFactory {
 
-    private static WebDriver driver;
+    private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static void initDriver() {
-        if (driver == null) {
-            WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized");
+        options.addArguments("--ignore-certificate-errors");
+        
+        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);     
 
-            ChromeOptions options = new ChromeOptions();
-            
-            options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        WebDriver webDriver = new ChromeDriver(options);
+        
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5)); 
+        webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
 
-            options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
-            options.setExperimentalOption("useAutomationExtension", false);
-            options.addArguments("--disable-blink-features=AutomationControlled");
-            
-            driver = new ChromeDriver(options);
-            driver.manage().window().maximize();
-        }
-    }  
+        driver.set(webDriver);
+    }
 
     public static WebDriver getDriver() {
-        if (driver == null) {
+        if (driver.get() == null) {
             initDriver();
         }
-        return driver;
+        return driver.get();
     }
 
     public static void quitDriver() {
-        if (driver != null) {
-            driver.quit();
-            driver = null; 
+        if (driver.get() != null) {
+            driver.get().quit();
+            driver.remove();
         }
     }
 }

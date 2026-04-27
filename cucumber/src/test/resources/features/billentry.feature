@@ -7,15 +7,21 @@ Feature: Billing Patient Management
     Given user is on the billing entry page
 
   Scenario Outline: Verify billing details for different patients and payment modes
-    When user enters UIN "0024425296" and presses enter
+    When user enters UIN "0024425395" and presses enter
     Then patient details should be displayed
-    And user selects Pay/Free as "<PaymentMode>"
-    And user selects Advised By as "<AdvisedBy>"
-    Then selected Pay/Free option should displayed 
-    And selected Advised By option should displayed
-    Then user clicks on Cancel button
 
-    Examples:
-     | PaymentMode | AdvisedBy |
-     | PAY         | Ashwin B  |
-     | FREE        | Rupa a    |
+    And user clicks PayFree dropdown
+    And user selects "<PayFree>" from PayFree dropdown 
+
+    And user clicks Advised By dropdown
+    And user selects "<AdvisedBy>" from Advised dropdown
+
+    Then selected "<PaymentMode>" option should be displayed
+    And selected "<AdvisedBy>" option should be displayed
+
+#    And user clicks Cancel button
+
+Examples:
+| PayFree     | AdvisedBy |
+| PAY         | Ashwin B  |
+| FREE        | Rupa A    |

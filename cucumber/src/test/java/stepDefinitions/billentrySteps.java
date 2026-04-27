@@ -1,28 +1,33 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.*;
+
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import hooks.Hooks;
+//import hooks.Hooks;
+//import pages.IhmsPage;
 import pages.billentryPage;
-import locators.billentryLocator;
+import utils.DriverFactory; 
 
 public class billentrySteps {
 
-    billentryPage billPage = new billentryPage(Hooks.driver);
+	WebDriver driver = DriverFactory.getDriver(); 
+//    IhmsPage ihmsPage = new IhmsPage(driver);
+    billentryPage billentryPage = new billentryPage(driver);
 
     @Given("user is on the billing entry page")
     public void user_is_on_the_billing_entry_page() {
-        billPage.openBillingPage();
+        billentryPage.openBillingPage(); 
     }
 
     @When("user enters UIN {string} and presses enter")
     public void user_enters_uin_and_presses_enter(String uin) {
-        billPage.enterUinAndSubmit(uin);
+    	billentryPage.enterUinAndSubmit(uin);
     }
 
     @Then("patient details should be displayed")
     public void patient_details_should_be_displayed() {
-        String patientName = billPage.getPatientName();
+        String patientName = billentryPage.getPatientName();
 
         System.out.println("Patient Name: " + patientName);
 
@@ -30,38 +35,48 @@ public class billentrySteps {
         Assert.assertFalse(patientName.isEmpty(), "Patient details not loaded");
     }
 
-    @And("user selects Pay/Free as {string}")
-    public void user_selects_pay_free(String mode) {
-        billPage.selectPayFree(mode);
+    @And("user clicks PayFree dropdown")
+    public void user_clicks_pay_free_dropdown() {
+        billentryPage.clickPayFreeDropdown();
     }
 
-    @And("user selects Advised By as {string}")
-    public void user_selects_advised_by(String doctor) {
-        billPage.selectAdvisedBy(doctor);
+    @And("user selects {string} from PayFree dropdown")
+    public void user_selects_from_pay_free_dropdown(String paymentMode) {
+        billentryPage.selectPayFree(paymentMode);
     }
 
-    @Then("selected Pay/Free option should displayed")
-    public void verify_pay_selection() {
-        String selected = billPage.getSelectedOption(billentryLocator.paymentTypeDropdown);
-
-        System.out.println("Selected Pay/Free: " + selected);
-
-        Assert.assertNotNull(selected);
-        Assert.assertFalse(selected.isEmpty(), "Pay/Free not selected");
+    @And("user clicks Advised By dropdown")
+    public void user_clicks_advised_by_dropdown() {
+    	billentryPage.clickAdvisedByDropdown();
     }
 
-    @And("selected Advised By option should displayed")
-    public void verify_advised_selection() {
-        String selected = billPage.getSelectedOption(billentryLocator.AdviseByDropdown);
-
-        System.out.println("Selected Doctor: " + selected);
-
-        Assert.assertNotNull(selected);
-        Assert.assertFalse(selected.equalsIgnoreCase("Select"), "Doctor not selected");
+    @And("user selects {string} from Advised dropdown")
+    public void user_selects_from_advised_by_dropdown(String advisedBy) {
+    	billentryPage.selectAdvisedBy(advisedBy);
     }
 
-//    @Then("user clicks on Cancel button")
-//    public void user_clicks_on_cancel_button() {
-//        billPage.clickCancel();
-//    }
+    @Then("selected {string} option should be displayed")
+    public void selected_option_should_be_displayed(String expectedValue) {
+
+        String actualValue;
+
+        // Checks whether expected is PAY/FREE or doctor name
+        if(expectedValue.equalsIgnoreCase("PAY") || expectedValue.equalsIgnoreCase("FREE")) {
+
+            actualValue = billentryPage.getSelectedPayFree();
+
+        } else {
+
+            actualValue = billentryPage.getSelectedAdvisedBy();
+        }
+
+        System.out.println("Expected: " + expectedValue);
+        System.out.println("Actual: " + actualValue);
+
+        Assert.assertEquals(
+            actualValue.trim(),
+            expectedValue.trim(),
+            "Dropdown selection mismatch"
+        );
+    }
 }
