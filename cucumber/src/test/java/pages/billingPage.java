@@ -1,46 +1,47 @@
 package pages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import java.time.Duration;
+
 import locators.billingLocator;
 
 public class billingPage {
 
     private WebDriver driver;
     private WebDriverWait wait;
-    private Actions actions;
 
     public billingPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        this.actions = new Actions(driver);
-    }
-    
-    public String getCurrentUrl() {
-        return driver.getCurrentUrl();
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
-    // Hover on Billing Menu
-    public void hoverBillingMenu() {
+    public void openBillingMenu() {
+
         WebElement billing = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(billingLocator.billingMenu)
+                ExpectedConditions.elementToBeClickable(billingLocator.billingMenu)
         );
-        actions.moveToElement(billing).perform();
+
+        try {
+            billing.click(); 
+        } catch (Exception e) {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", billing);
+        }
     }
 
-    // Click Bill Entry
-    public void selectBillEntry() {
+    public void clickBillEntry() {
 
         WebElement billEntry = wait.until(
                 ExpectedConditions.elementToBeClickable(billingLocator.billEntryOption)
         );
 
-        billEntry.click();
+        try {
+            billEntry.click();
+        } catch (Exception e) {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", billEntry);
+        }
     }
 
-    // Verify Bill Entry Page Loaded
     public boolean isBillEntryPageLoaded() {
         try {
             return wait.until(ExpectedConditions.urlContains("bill-entry"));

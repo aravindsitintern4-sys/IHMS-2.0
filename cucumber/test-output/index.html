@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 5 failed tests</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\intern2\AppData\Local\Temp\testng-eclipse--2106677480\testng-customsuite.xml</span>
+                    <span>C:\Users\intern2\AppData\Local\Temp\testng-eclipse--1853071531\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">5 methods, 5 failed,   </span>
+                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -106,27 +106,21 @@
                         <a href="#" panel-name="suite-Default_suite" title="runner.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Verify user can access IHMS dashboard&quot;, &quot;IHMS dashboard feature&quot;)">runScenario("Verify user can access IHMS dashboard", "IHMS dashboard feature")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Default_suite">
                       <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="runner.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Navigate to Bill Entry page&quot;, &quot;Billing Entry&quot;)">runScenario("Navigate to Bill Entry page", "Billing Entry")</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="runner.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Verify billing details for different patients and payment modes&quot;, &quot;Billing Patient Management&quot;)">runScenario("Verify billing details for different patients and payment modes", "Billing Patient Management")</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="runner.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Valid Login&quot;, &quot;Login Feature&quot;)">runScenario("Valid Login", "Login Feature")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="runner.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Verify billing details for different patients and payment modes&quot;, &quot;Billing Patient Management&quot;)">runScenario("Verify billing details for different patients and payment modes", "Billing Patient Management")</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Default_suite -->
+                    </div> <!-- method-list-content passed suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -150,121 +144,30 @@
                   </a> <!-- runScenario("Verify user can access IHMS dashboard", "IHMS dashboard feature") -->
                   <span class="method-name">runScenario</span>
                   <span class="parameters">("Verify user can access IHMS dashboard","IHMS dashboard feature")</span>
-                  <div class="stack-trace">java.lang.AssertionError: IHMS page is not displayed expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertTrue(Assert.java:57)
-	at stepDefinitions.IhmsSteps2.ihms_dashboard_page_should_be_displayed(IhmsSteps2.java:28)
-	at ✽.IHMS dashboard page should be displayed(file:///C:/Users/intern2/git/repository/cucumber/src/test/resources/features/2_Ihms.feature:8)
-
-</div> <!-- stack-trace -->
-                  <em>
-(Runs Cucumber Scenarios)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="runScenario(&quot;Navigate to Bill Entry page&quot;, &quot;Billing Entry&quot;)">
-                  </a> <!-- runScenario("Navigate to Bill Entry page", "Billing Entry") -->
-                  <span class="method-name">runScenario</span>
-                  <span class="parameters">("Navigate to Bill Entry page","Billing Entry")</span>
-                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //span[contains(text(),&apos;Billing&apos;)] (tried for 15 second(s) with 500 milliseconds interval)
+                  <div class="stack-trace">org.openqa.selenium.NoSuchSessionException: invalid session id
 Build info: version: &apos;4.31.0&apos;, revision: &apos;1ef9f18787*&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.10&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.103, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Users\intern2\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63172}, goog:processID: 14960, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63172/devtoo..., se:cdpVersion: 147.0.7727.103, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e526b0eb7f7d511fd19beb83248b23b9
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at stepDefinitions.billingSteps.navigate_and_select_bill_entry(billingSteps.java:30)
-	at ✽.user navigates to Billing and selects &quot;Bill Entry&quot;(file:///C:/Users/intern2/git/repository/cucumber/src/test/resources/features/Billing.feature:8)
-
-</div> <!-- stack-trace -->
-                  <em>
-(Runs Cucumber Scenarios)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="runScenario(&quot;Verify billing details for different patients and payment modes&quot;, &quot;Billing Patient Management&quot;)">
-                  </a> <!-- runScenario("Verify billing details for different patients and payment modes", "Billing Patient Management") -->
-                  <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify billing details for different patients and payment modes","Billing Patient Management")</span>
-                  <div class="stack-trace">org.openqa.selenium.TimeoutException: java.net.http.HttpTimeoutException: request timed out
-Build info: version: &apos;4.31.0&apos;, revision: &apos;1ef9f18787*&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.10&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [e526b0eb7f7d511fd19beb83248b23b9, findElement {using=xpath, value=(//input[@formcontrolname=&apos;patientUin&apos;])}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.103, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Users\intern2\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63172}, goog:processID: 14960, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63172/devtoo..., se:cdpVersion: 147.0.7727.103, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e526b0eb7f7d511fd19beb83248b23b9
-	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:495)
-	at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
-	at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
-	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.lambda$executeAsync$1(JdkHttpClient.java:384)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-	at ✽.user is on the billing entry page(file:///C:/Users/intern2/git/repository/cucumber/src/test/resources/features/billentry.feature:7)
-Caused by: java.net.http.HttpTimeoutException: request timed out
-	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:953)
-	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
-	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:456)
-	at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
-	at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
-	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.lambda$executeAsync$1(JdkHttpClient.java:384)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-
-</div> <!-- stack-trace -->
-                  <em>
-(Runs Cucumber Scenarios)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="runScenario(&quot;Valid Login&quot;, &quot;Login Feature&quot;)">
-                  </a> <!-- runScenario("Valid Login", "Login Feature") -->
-                  <span class="method-name">runScenario</span>
-                  <span class="parameters">("Valid Login","Login Feature")</span>
-                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for url to contain &quot;dashboard&quot;. Current url: &quot;https://eyenotes20-base-qa.aravind.org:30434/login&quot; (tried for 20 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.31.0&apos;, revision: &apos;1ef9f18787*&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.10&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.103, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Users\intern2\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63172}, goog:processID: 14960, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63172/devtoo..., se:cdpVersion: 147.0.7727.103, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e526b0eb7f7d511fd19beb83248b23b9
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at pages.LoginPage.clickLogin(LoginPage.java:38)
-	at stepDefinitions.LoginSteps1.click_login(LoginSteps1.java:27)
-	at ✽.user clicks on login button(file:///C:/Users/intern2/git/repository/cucumber/src/test/resources/features/1_login.feature:24)
-
-</div> <!-- stack-trace -->
-                  <em>
-(Runs Cucumber Scenarios)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="runScenario(&quot;Verify billing details for different patients and payment modes&quot;, &quot;Billing Patient Management&quot;)">
-                  </a> <!-- runScenario("Verify billing details for different patients and payment modes", "Billing Patient Management") -->
-                  <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify billing details for different patients and payment modes","Billing Patient Management")</span>
-                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: (//input[@formcontrolname=&apos;patientUin&apos;]) (tried for 60 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.31.0&apos;, revision: &apos;1ef9f18787*&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.10&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.103, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Users\intern2\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63172}, goog:processID: 14960, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63172/devtoo..., se:cdpVersion: 147.0.7727.103, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e526b0eb7f7d511fd19beb83248b23b9
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at pages.billentryPage.openBillingPage(billentryPage.java:22)
-	at stepDefinitions.billentrySteps.user_is_on_the_billing_entry_page(billentrySteps.java:20)
-	at ✽.user is on the billing entry page(file:///C:/Users/intern2/git/repository/cucumber/src/test/resources/features/billentry.feature:7)
+Command: [412619db55f2e50efc33add813938a4b, refresh {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.103, chrome: {chromedriverVersion: 147.0.7727.117 (474cc805edd..., userDataDir: C:\Users\intern2\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49785}, goog:processID: 29268, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49785/devtoo..., se:cdpVersion: 147.0.7727.103, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 412619db55f2e50efc33add813938a4b
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:618)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:622)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:1106)
+	at pages.IhmsPage.loadIHMSContentWithRetry(IhmsPage.java:46)
+	at pages.IhmsPage.clickIHMSModule(IhmsPage.java:38)
+	at stepDefinitions.IhmsSteps2.user_selects_the_ihms_module(IhmsSteps2.java:23)
+	at ✽.user selects the IHMS module(file:///C:/Users/intern2/git/repository/cucumber/src/test/resources/features/2_Ihms.feature:7)
 
 </div> <!-- stack-trace -->
                   <em>
@@ -273,10 +176,28 @@ Session ID: e526b0eb7f7d511fd19beb83248b23b9
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Default_suite-class-failed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">runner.TestRunner</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Valid Login&quot;, &quot;Login Feature&quot;)">
+                  </a> <!-- runScenario("Valid Login", "Login Feature") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Valid Login","Login Feature")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\intern2\AppData\Local\Temp\testng-eclipse--2106677480\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\intern2\AppData\Local\Temp\testng-eclipse--1853071531\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -333,32 +254,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(5);
+data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'runner.TestRunner')
-data.setCell(0, 3, 221113);
+data.setCell(0, 3, 7601);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'runScenario')
 data.setCell(1, 2, 'runner.TestRunner')
-data.setCell(1, 3, 139349);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'runScenario')
-data.setCell(2, 2, 'runner.TestRunner')
-data.setCell(2, 3, 60582);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'runScenario')
-data.setCell(3, 2, 'runner.TestRunner')
-data.setCell(3, 3, 59942);
-data.setCell(4, 0, 4)
-data.setCell(4, 1, 'runScenario')
-data.setCell(4, 2, 'runner.TestRunner')
-data.setCell(4, 3, 16069);
+data.setCell(1, 3, 4536);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 8 minutes</span>
+              <span class="suite-total-time">Total running time: 12 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -386,42 +295,22 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">runner.TestRunner</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@64469d8)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@49ec6a9f)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">runScenario("Valid Login", "Login Feature")</span>
-                <span class="method-start">172 ms</span>
+                <span class="method-start">196 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">runScenario("Verify user can access IHMS dashboard", "IHMS dashboard feature")</span>
-                <span class="method-start">60114 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">runScenario("Navigate to Bill Entry page", "Billing Entry")</span>
-                <span class="method-start">199463 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">runScenario("Verify billing details for different patients and payment modes", "Billing Patient Management")</span>
-                <span class="method-start">215545 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">runScenario("Verify billing details for different patients and payment modes", "Billing Patient Management")</span>
-                <span class="method-start">276135 ms</span>
+                <span class="method-start">4748 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">497252 ms</span>
+                <span class="method-start">12353 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

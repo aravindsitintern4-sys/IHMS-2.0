@@ -4,99 +4,71 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 import java.time.Duration;
 import java.util.Set;
-
 import locators.IhmsLocator;
 
 public class IhmsPage {
-
-    WebDriver driver;
-    WebDriverWait wait;
+    private final WebDriver driver;
+    private final WebDriverWait wait;
 
     public IhmsPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-    }
-
-    public void waitForDashboardToLoad() {
-
-        wait.until(driver -> ((JavascriptExecutor) driver)
-                .executeScript("return document.readyState")
-                .equals("complete")
-        );
-
-        wait.until(ExpectedConditions.urlContains("dashboard"));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(IhmsLocator.ihmslogin));
-
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println("Dashboard fully loaded");
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(22));
     }
 
     public void clickIHMSModule() {
-        String mainWindow = driver.getWindowHandle();
+        String originalWindow = driver.getWindowHandle();
 
-        WebElement ihmsCard = wait.until(ExpectedConditions.elementToBeClickable(IhmsLocator.ihmslogin));
-        ihmsCard.click();
-        System.out.println("Clicked IHMS Card. Waiting for new window...");
+        WebElement card = wait.until(
+            ExpectedConditions.elementToBeClickable(IhmsLocator.ihmslogin)
+        );
+        card.click();
 
-        wait.until(d -> d.getWindowHandles().size() > 1);
+        wait.until(ExpectedConditions.numberOfWindowsToBe(2));
 
         Set<String> allWindows = driver.getWindowHandles();
-        for (String window : allWindows) {
-            if (!window.equals(mainWindow)) {
-                driver.switchTo().window(window);
-                System.out.println("Switched to new window: " + window);
+        for (String handle : allWindows) {
+            if (!handle.equals(originalWindow)) {
+                driver.switchTo().window(handle);
                 break;
             }
         }
 
+        wait.until(d -> !d.getCurrentUrl().equals("about:blank"));
+
+        loadIHMSContentWithRetry();
+    }
+
+    private void loadIHMSContentWithRetry() {
         try {
-            wait.until(ExpectedConditions.presenceOfElementLocated(IhmsLocator.ihmsMenu));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(IhmsLocator.ihmsMenu));
-            System.out.println("IHMS UI loaded successfully.");
-        } catch (TimeoutException e) {
-            System.err.println("Page is still blank after switching! Current URL: " + driver.getCurrentUrl());
-            debugBlankPage();
+            switchToIframeAndValidate();
+        } catch (Exception e) {
+            System.out.println("IHMS content not loaded. Refreshing...");
+            driver.navigate().refresh();
+            switchToIframeAndValidate();
         }
+    }
+
+    private void switchToIframeAndValidate() {
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(IhmsLocator.ihmsIframe));
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(IhmsLocator.ihmsMenu));
+
+        System.out.println("IHMS Dashboard loaded successfully.");
+    }
+
+    public void waitForDashboardToLoad() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(IhmsLocator.ihmsMenu));
     }
 
     public boolean isIHMSPageDisplayed() {
         try {
-            wait.until(webDriver -> ((JavascriptExecutor) webDriver)
-                    .executeScript("return document.readyState").equals("complete"));
-
-            WebElement ihmsMenu = wait.until(ExpectedConditions.visibilityOfElementLocated(IhmsLocator.ihmsMenu));
-
-            System.out.println("IHMS menu visible: " + ihmsMenu.getText());
-            return ihmsMenu.isDisplayed();
-
-        } catch (TimeoutException e) {
-            System.out.println("Timeout: IHMS page NOT displayed within the wait time.");
-            debugBlankPage();
-            return false;
-
+            WebElement menu = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(IhmsLocator.ihmsMenu)
+            );
+            return menu.isDisplayed();
         } catch (Exception e) {
-            System.out.println("Exception occurred: " + e.getMessage());
-            debugBlankPage();
+            System.out.println("IHMS Menu not visible.");
             return false;
         }
-    }
-    
-    private void debugBlankPage() {
-        System.out.println("--- DEBUG INFO ---");
-        System.out.println("URL: " + driver.getCurrentUrl());
-        System.out.println("Title: " + driver.getTitle());
-        
-        String pageSource = driver.getPageSource();
-        if (pageSource != null && pageSource.length() > 500) {
-            System.out.println("Page Source Snippet: " + pageSource.substring(0, 500) + "..."); 
-        } else {
-            System.out.println("Page Source: " + pageSource);
-        }
-        System.out.println("------------------");
     }
 }

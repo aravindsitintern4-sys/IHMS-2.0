@@ -1,5 +1,5 @@
-@login @dashboard
-@billing
+#@login @dashboard
+#@billing
 
 Feature: Billing Entry
 

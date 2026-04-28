@@ -6,16 +6,17 @@ public class billentryLocator {
 
 	public static By uinInput = By.xpath("(//input[@formcontrolname='patientUin'])");
 	
-	public static By paymentTypeDropdown = By.cssSelector("select.wid-70-cus");
-
-	public static By optionPay = By.xpath("//option[text()='PAY']");
-    public static By optionFree = By.xpath("//option[text()='FREE']");
+	public static By paymentTypeDropdown = By.xpath("//app-dropdown[@formcontrolname='patientMode']//select");
+	public static By payFreeContainer = By.xpath("//app-dropdown[@formcontrolname='patientMode']");
+	
+//	public static By optionPay = By.xpath("//option[text()='PAY']");
+//    public static By optionFree = By.xpath("//option[text()='FREE']");
     
     public static By patientTypeDropdown = By.cssSelector("select.wid-70-cus");
 
-    public static By optionInPatient = By.xpath("//option[@value='IP']");
-    public static By optionOutPatient = By.xpath("//option[@value='OP']");
-    public static By optionStaff = By.xpath("//option[@value='S']");
+//    public static By optionInPatient = By.xpath("//option[@value='IP']");
+//    public static By optionOutPatient = By.xpath("//option[@value='OP']");
+//    public static By optionStaff = By.xpath("//option[@value='S']");
     
     public static By adviseByDropdown = By.id("advisedBy");
     

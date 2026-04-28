@@ -13,7 +13,7 @@ public class LoginSteps1 {
 
     @Given("user is on login page")
     public void user_is_on_login_page() {
-        DriverFactory.getDriver().get("https://eyenotes20-base-qa.aravind.org:30434/login");
+        DriverFactory.getDriver().get("https://eyenotes20-base-qa.aravind.org:31026/login");
     }
 
     @When("user enters username {string} and password {string}")

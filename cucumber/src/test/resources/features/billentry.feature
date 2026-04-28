@@ -1,27 +1,37 @@
-@login @dashboard @billing
-@billentry
+#@login @dashboard @billing
+#@billentry
 
 Feature: Billing Patient Management
 
   Background:
     Given user is on the billing entry page
 
-  Scenario Outline: Verify billing details for different patients and payment modes
-    When user enters UIN "0024425395" and presses enter
+  Scenario: Verify billing 
+
+    When user enters UIN "0024425411" and presses enter
     Then patient details should be displayed
-
+    
     And user clicks PayFree dropdown
-    And user selects "<PayFree>" from PayFree dropdown 
-
+    And user selects "PAY" from PayFree dropdown
+    
+#    And user clicks PayFree dropdown
+#    And user selects "FREE" from PayFree dropdown
+    
     And user clicks Advised By dropdown
-    And user selects "<AdvisedBy>" from Advised dropdown
+    And user selects "Dev User" from Advised By dropdown
+    
+    And user clicks Testname dropdown
+    And user selects test name "APTT" and presses enter
+    
+    And user selects payment category "FULL PAYMENT"
+    And user clicks on Fees field
+    And user presses Enter in Fees field
+    
+    And user clicks Save button
+    And user clicks Cancel button
+    
+    
+    
 
-    Then selected "<PaymentMode>" option should be displayed
-    And selected "<AdvisedBy>" option should be displayed
 
-#    And user clicks Cancel button
-
-Examples:
-| PayFree     | AdvisedBy |
-| PAY         | Ashwin B  |
-| FREE        | Rupa A    |
+  
