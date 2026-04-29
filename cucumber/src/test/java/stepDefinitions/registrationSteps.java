@@ -8,22 +8,27 @@ import pages.RegistrationPage;
 import utils.DriverFactory;
 
 public class registrationSteps {
+	WebDriver driver;
+    RegistrationPage registrationPage;
+    
+    public registrationSteps() {
+        this.driver = DriverFactory.getDriver();
+        this.registrationPage = new RegistrationPage(this.driver);
+    }
 
-    WebDriver driver = DriverFactory.getDriver();
-    RegistrationPage registrationPage = new RegistrationPage(driver);
+//    WebDriver driver = DriverFactory.getDriver();
+//    RegistrationPage registrationPage = new RegistrationPage(driver);
 
     @When("user navigates to OP Module and selects {string}")
     public void navigate_to_op_registration(String optionName) {
-        registrationPage.selectOutpatientRegistration(optionName);
+        registrationPage.navigateToOutpatientRegistration(optionName);
     }
 
     @Then("the op registration page should be displayed")
-    public void verify_op_registration_page() {
-
-        Assert.assertTrue(registrationPage.isOPRegistrationPageLoaded(),
-                "Navigation failed: OP Registration page not loaded");
-
-        System.out.println("OP Registration Page Loaded Successfully");
+    public void verify_registration_page() {
+        boolean isLoaded = registrationPage.isOPRegistrationPageLoaded();
+        
+        Assert.assertTrue(isLoaded, "Registration page failed to load after clicking OP Modules!");
     }
     
     @When("user selects payment type {string}")
@@ -59,4 +64,78 @@ public class registrationSteps {
             System.out.println("Skipping gender confirmation for: " + gender);
         }
     }
+    
+    @And("user selects kin relation as {string} and enters name {string}")
+    public void user_selects_kin_relation_and_enters_name(String relation, String kinName) {
+        registrationPage.enterKinDetails(relation, kinName);
+    }
+    
+    @When("user clicks the cancel button")
+    public void user_clicks_cancel() {
+        registrationPage.clickCancel();
+    }
+    
+    @When("user selects visit type as {string}")
+    public void select_visit_type(String type) {
+        registrationPage.selectVisitType(type);
+    }
+    
+    @And("user enter Reference No as {string}")
+    public void user_enters_reference_no(String refNo) {
+        registrationPage.enterReferenceNumber(refNo);
+    }
+    
+    @And("user Click CRS box")
+    public void user_clicks_crs_box() {
+        registrationPage.setCRSCheckbox(true);
+    }
+    
+    @And("user selects District as {string}")
+    public void user_selects_district(String district) {
+        registrationPage.selectDistrict(district);
+    }
+    
+    @And("user selects Referral Name as {string}")
+    public void user_selects_referral_name(String hospital) {
+        registrationPage.selectReferralName(hospital);
+    }
+    
+    @And("user selects Clinic Referred as {string}")
+    public void user_selects_clinic_referred_to(String clinic) {
+        registrationPage.selectClinicReferredTo(clinic);
+    }
+    
+    @And("user selects Doctor Referred as {string}")
+    public void user_selects_doctor_referred_to(String doctor) {
+        registrationPage.selectDoctorReferredTo(doctor);
+    }
+    
+    @And("user clicks on referral submit button")
+    public void user_clicks_on_referral_submit_button() {
+        registrationPage.clickReferralSubmit();
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

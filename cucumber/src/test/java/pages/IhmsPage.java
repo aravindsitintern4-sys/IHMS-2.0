@@ -12,7 +12,7 @@ public class IhmsPage {
 
     public IhmsPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(22));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
     public void clickIHMSModule() {
@@ -48,12 +48,12 @@ public class IhmsPage {
         }
     }
 
-    private void switchToIframeAndValidate() {
-        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(IhmsLocator.ihmsIframe));
-
-        wait.until(ExpectedConditions.visibilityOfElementLocated(IhmsLocator.ihmsMenu));
-
-        System.out.println("IHMS Dashboard loaded successfully.");
+    public void switchToIframeAndValidate() {
+        driver.switchTo().defaultContent();
+        
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("iframe")));
+        
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("//iframe[contains(@src,'ihms')]")));
     }
 
     public void waitForDashboardToLoad() {

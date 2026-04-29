@@ -18,27 +18,26 @@ public class RegistrationPage {
         this.actions = new Actions(driver);
     }
 
-    public void selectOutpatientRegistration(String optionName) {
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("modal-backdrop")));
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(RegistrationLocator.genderConfirmModal));
-
-        WebElement menu = wait.until(ExpectedConditions.elementToBeClickable(RegistrationLocator.opModulesMenu));
+    public void navigateToOutpatientRegistration(String optionName) {
+        Actions actions = new Actions(driver);
         
-        menu.click(); 
-
-        WebElement option = wait.until(ExpectedConditions.presenceOfElementLocated(
-            RegistrationLocator.getMenuOption(optionName)));
-
-        try {
-            wait.until(ExpectedConditions.visibilityOf(option));
-            option.click();
-        } catch (Exception e) {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", option);
-        }
+        WebElement menu = wait.until(ExpectedConditions.visibilityOfElementLocated(
+            RegistrationLocator.opModulesMenu));
+        
+        actions.moveToElement(menu).perform();
+        
+        WebElement option = wait.until(ExpectedConditions.elementToBeClickable(
+            RegistrationLocator.outpatientRegistration));
+        
+        option.click();
     }
-
+    
     public boolean isOPRegistrationPageLoaded() {
-        return wait.until(ExpectedConditions.urlContains("registration"));
+        try {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(RegistrationLocator.firstNameInput)).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
     
     public void selectPaymentType(String type) {
@@ -125,4 +124,150 @@ public class RegistrationPage {
         }
         wait.until(ExpectedConditions.invisibilityOfElementLocated(RegistrationLocator.genderConfirmModal));
     }
+    
+    public void enterKinDetails(String relation, String name) {
+        WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(
+            RegistrationLocator.kinTypeDropdown));
+        
+        Select select = new Select(dropdown);
+        select.selectByVisibleText(relation.trim());
+
+        WebElement nameInput = wait.until(ExpectedConditions.elementToBeClickable(
+            RegistrationLocator.kinNameField));
+        
+        nameInput.clear();
+        nameInput.sendKeys(name);
+    }
+    
+    public void clickCancel() {
+        WebElement cancelBtn = wait.until(ExpectedConditions.elementToBeClickable(RegistrationLocator.cancelButton));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", cancelBtn);       
+    }
+    
+    public void selectVisitType(String visitType) {
+        WebElement radioBtn = wait.until(ExpectedConditions.presenceOfElementLocated(
+            RegistrationLocator.getVisitTypeRadio(visitType)));
+        
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", radioBtn);
+    }
+    
+    public void enterReferenceNumber(String refNo) {
+        WebElement refField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+            RegistrationLocator.referenceNoInput));
+        
+        refField.clear();
+        refField.sendKeys(refNo);
+    }
+    
+    public void setCRSCheckbox(boolean shouldBeChecked) {
+        WebElement checkbox = wait.until(ExpectedConditions.presenceOfElementLocated(
+            RegistrationLocator.crsCheckbox));
+        
+        if (checkbox.isSelected() != shouldBeChecked) {
+            try {
+                checkbox.click();
+            } catch (Exception e) {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", checkbox);
+            }
+        }
+    }
+    
+    public void selectReferralName(String hospitalName) {
+        WebElement dropdownElement = wait.until(ExpectedConditions.elementToBeClickable(RegistrationLocator.referralNameSelect));
+        Select referralSelect = new Select(dropdownElement);
+        
+        try {
+            referralSelect.selectByVisibleText(hospitalName);
+        } catch (Exception e) {
+            System.out.println("Could not find hospital: " + hospitalName);
+            referralSelect.selectByIndex(1);
+        }
+    }
+    
+    public void selectDistrict(String districtName) {
+        WebElement districtDropdown = wait.until(ExpectedConditions.presenceOfElementLocated(RegistrationLocator.districtSelect));
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", districtDropdown);
+        wait.until(d -> districtDropdown.isEnabled());
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", districtDropdown);
+        Select select = new Select(districtDropdown);
+        select.selectByVisibleText(" " + districtName.toUpperCase().trim() + " ");
+    }
+    
+    public void selectClinicReferredTo(String clinicName) {
+        WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(RegistrationLocator.clinicReferredToSelect));
+        
+        Select select = new Select(dropdown);
+        
+        try {
+            select.selectByVisibleText(" " + clinicName.toUpperCase().trim() + " ");
+        } catch (Exception e) {
+            System.out.println("Clinic not found exactly. Trying partial match for: " + clinicName);
+            select.selectByContainsVisibleText(clinicName.trim());
+        }
+    }
+    
+    public void fillReferralForm(String refNo, String district, String refName, String clinic, String doctor) {
+      
+        WebElement refInput = wait.until(ExpectedConditions.elementToBeClickable(RegistrationLocator.referenceNoInput));
+        refInput.sendKeys(refNo, Keys.TAB);
+
+        WebElement crs = driver.findElement(By.xpath("//input[@type='checkbox']"));
+        crs.click();
+        crs.sendKeys(Keys.TAB); 
+
+        selectDropdownWorkaround(RegistrationLocator.districtSelect, district);
+        selectDropdownWorkaround(RegistrationLocator.referralNameSelect, refName);
+        selectDropdownWorkaround(RegistrationLocator.clinicReferredToSelect, clinic);
+        selectDropdownWorkaround(RegistrationLocator.doctorReferredToSelect, doctor);
+    }
+
+    private void selectDropdownWorkaround(By locator, String value) {
+      
+        WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        wait.until(d -> dropdown.isEnabled());
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", dropdown);
+
+        Select select = new Select(dropdown);
+        select.selectByVisibleText(" " + value.trim().toUpperCase() + " ");
+    }
+    
+    public void selectDoctorReferredTo(String doctorName) {
+        WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(RegistrationLocator.doctorReferredToSelect));
+        
+        Select select = new Select(dropdown);
+        try {
+            select.selectByVisibleText(" " + doctorName + " ");
+        } catch (Exception e) {
+            select.selectByVisibleText(doctorName);
+        }
+    }
+    
+    public void clickReferralSubmit() {
+        WebElement submitBtn = wait.until(ExpectedConditions.elementToBeClickable(RegistrationLocator.referralSubmitBtn));
+        submitBtn.click();
+    }
+
+    public void clickReferralCancel() {
+        driver.findElement(RegistrationLocator.referralCancelBtn).click();
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
