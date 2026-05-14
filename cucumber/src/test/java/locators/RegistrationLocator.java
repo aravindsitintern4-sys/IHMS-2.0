@@ -57,6 +57,24 @@ public class RegistrationLocator {
 
     public static By referralSubmitBtn = By.xpath("//button[contains(text(),'Submit')]");
     public static By referralCancelBtn = By.xpath("//button[contains(text(),'Cancel')]");
+    
+    public static By nationalityDropdown = By.xpath("//label[contains(text(),'Nationality')]/following::select[1]");
+
+    public static By doorStreetField = By.xpath("//input[@placeholder='Door/Street']");
+    public static By localityField = By.xpath("//input[@placeholder='Locality']");
+    public static By cityField = By.xpath("//input[@placeholder='City']");
+
+    public static By areaDropdown = By.xpath("//label[contains(text(),'Area')]/following::select[1]");
+
+    public static By pincodeField = By.xpath("//input[@placeholder='Pincode']");
+
+    public static By talukDropdown = By.xpath("//label[contains(text(),'Taluk')]/following::select[1]");
+
+    public static By mobileField = By.xpath("//input[@placeholder='Mobile Number']");
+
+    public static By emailField = By.xpath("//input[@placeholder='Email']");
+
+    public static By aadhaarField = By.xpath("//input[@placeholder='Aadhaar']");
 }
 
 

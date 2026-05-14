@@ -114,6 +114,61 @@ public class registrationSteps {
     public void user_clicks_on_referral_submit_button() {
         registrationPage.clickReferralSubmit();
     }
+    
+    @When("user selects Nationality as {string}")
+    public void user_selects_nationality(String nationality) {
+        registrationPage.selectNationality(nationality);
+    }
+
+    @When("user enters Door or Street as {string}")
+    public void user_enters_door_street(String doorStreet) {
+        registrationPage.enterDoorStreet(doorStreet);
+    }
+
+    @When("user enters Locality as {string}")
+    public void user_enters_locality(String locality) {
+        registrationPage.enterLocality(locality);
+    }
+
+    @When("user enters City as {string}")
+    public void user_enters_city(String city) {
+        registrationPage.enterCity(city);
+    }
+    
+    @When("user clicks Area option to enable Area dropdown")
+    public void user_clicks_area_option() {
+        registrationPage.clickAreaOption();
+    }
+
+    @When("user select Area as {string}")
+    public void user_select_area(String area) {
+        registrationPage.selectArea(area);
+    }
+
+    @When("user enters PinCode as {string}")
+    public void user_enters_pincode(String pincode) {
+        registrationPage.enterPincode(pincode);
+    }
+
+    @When("user selects Taluk as {string}")
+    public void user_selects_taluk(String taluk) {
+        registrationPage.selectTaluk(taluk);
+    }
+
+    @When("user enters Mobilenumber as {string}")
+    public void user_enters_mobile(String mobile) {
+        registrationPage.enterMobile(mobile);
+    }
+
+    @When("user enters emailid as {string}")
+    public void user_enters_email(String email) {
+        registrationPage.enterEmail(email);
+    }
+
+    @When("user enters Aadhaar No as {string}")
+    public void user_enters_aadhaar(String aadhaar) {
+        registrationPage.enterAadhaar(aadhaar);
+    }
 }
 
 

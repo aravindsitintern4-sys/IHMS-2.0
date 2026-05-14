@@ -38,24 +38,61 @@ Feature: Outpatient Registration
       | Male        | S/O      | Richard Roe |
       | Female      | W/O      | Juily       |
       | Transgender | C/O      | Rose        |
-      
-   Scenario Outline: Select visit
+     
+     Scenario Outline: Select visit without CRS
    And user selects visit type as "Normal"
    And user selects visit type as "Referral"
    And user enter Reference No as "9876543456"
-   And user Click CRS box
-   And user selects District as "<District>"
    And user selects Referral Name as "<Name>"
    And user selects Clinic Referred as "<Clinic>"
    And user selects Doctor Referred as "<Doctor>"
    
    Then user clicks on referral submit button
 #   Then user clicks referral Cancel button
+
+   Then user clicks Cancel button
    
    Examples:
-     |District | Name                               | Clinic    | Doctor  |
-     |DINDIGUL | Kamarajar Narpani Mandram, Eriodu  | FREENEW   | Anjana  |
-     |KARUR    | Lions Club Of Karur Host           | FREE UNIT | Anu N V |
+     | Name               | Clinic    | Doctor  |
+     | AADHI EYE HOSPITAL | FREENEW   | Anjana  |
+     
+     
+#    Scenario Outline: Select visit
+#   And user selects visit type as "Normal"
+#   And user selects visit type as "Referral"
+#   And user enter Reference No as "9876543456"
+#   And user Click CRS box
+#   And user selects District as "<District>"
+#   And user selects Referral Name as "<Name>"
+#   And user selects Clinic Referred as "<Clinic>"
+#   And user selects Doctor Referred as "<Doctor>"
+   
+#   Then user clicks on referral submit button
+#   Then user clicks referral Cancel button
+   
+#   Examples:
+#     |District | Name                               | Clinic    | Doctor  |
+#     |DINDIGUL | Kamarajar Narpani Mandram, Eriodu  | FREENEW   | Anjana  |
+#     |KARUR    | Lions Club Of Karur Host           | FREE UNIT | Anu N V |
+
+    Scenario: Select Nationality Of  Indian
+     When user selects Nationality as "Indian"
+     And user enters Door or Street as "<DoorStreet>"
+     And user enters Locality as "<Locality>"
+     And user enters City as "<City>"
+     And user clicks Area option to enable Area dropdown
+     And user select Area as "ELLIS NAGAR"
+     And user enters PinCode as "<PinCode>"
+     And user selects Taluk as "<Taluk>"
+     And user enters Mobilenumber as "<Number>"
+     And user enters emailid as "<Mail>"
+     And user enters Aadhaar No as "<Aadhaar>"
+    
+    Examples:
+      | DoorStreet    | Locality      | City    | PinCode | Taluk   | Number      | Mail            | Aadhaar        | 
+      | 123 Main St   | North Block   | Madurai | 625001  | Madurai | 9876546789  | aff56@gmail.com | 123456789012   |
+     
+   
     
       
     

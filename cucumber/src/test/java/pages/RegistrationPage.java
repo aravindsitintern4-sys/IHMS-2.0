@@ -14,7 +14,7 @@ public class RegistrationPage {
 
     public RegistrationPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         this.actions = new Actions(driver);
     }
 
@@ -252,6 +252,78 @@ public class RegistrationPage {
 
     public void clickReferralCancel() {
         driver.findElement(RegistrationLocator.referralCancelBtn).click();
+    }
+    
+    public void selectNationality(String nationality) {
+        WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(nationalityDropdown));
+        Select select = new Select(dropdown);
+        select.selectByVisibleText(nationality);
+    }
+
+    public void enterDoorStreet(String value) {
+        enterText(doorStreetField, value);
+    }
+
+    public void enterLocality(String value) {
+        enterText(localityField, value);
+    }
+
+    public void enterCity(String value) {
+        enterText(cityField, value);
+    }
+
+    public void enterPincode(String value) {
+        enterText(pincodeField, value);
+    }
+
+    public void enterMobile(String value) {
+        enterText(mobileField, value);
+    }
+
+    public void enterEmail(String value) {
+        enterText(emailField, value);
+    }
+
+    public void enterAadhaar(String value) {
+        enterText(aadhaarField, value);
+    }
+
+    private void enterText(By locator, String value) {
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        element.clear();
+        element.sendKeys(value);
+    }
+
+    public void selectArea(String area) {
+        selectDropdown(areaDropdown, area);
+    }
+
+    public void selectTaluk(String taluk) {
+        selectDropdown(talukDropdown, taluk);
+    }
+
+    private void selectDropdown(By locator, String value) {
+        WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(locator));
+        Select select = new Select(dropdown);
+        select.selectByVisibleText(value);
+    }
+    
+    public void clickAreaOption() {
+
+        WebElement cityAreaToggle = wait.until(
+            ExpectedConditions.elementToBeClickable(cityAreaToggleLocator)
+        );
+        cityAreaToggle.click();
+
+        WebElement areaOption = wait.until(
+            ExpectedConditions.elementToBeClickable(areaOptionLocator)
+        );
+        areaOption.click();
+
+        wait.until(driver -> {
+            WebElement dropdown = driver.findElement(areaDropdown);
+            return dropdown.isEnabled();
+        });
     }
 }
 
